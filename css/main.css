@@ -1,0 +1,44 @@
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div.image-background {
+  z-index: -10;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: #444488;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+div.gradient-overlay {
+  z-index: -9;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#000000), color-stop(0.5, rgba(0, 0, 0, 0)), to(#000000));
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 80%, #000000 100%);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 80%, #000000 100%);
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0) 250, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 80%, #000000 100%);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 80%, #000000 100%);
+}
+.backdrop div {
+  background-color: #FFFFFF;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  height: 100vh;
+}
+/* Extra small devices (phones, less than 768px) */
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */

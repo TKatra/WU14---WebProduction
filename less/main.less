@@ -1,0 +1,88 @@
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+div.image-background{
+	z-index: -10;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: #444488;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position:50% 50%;
+}
+
+div.gradient-overlay {
+	z-index: -9;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+
+  	/* Safari 4-5, Chrome 1-9 */
+  	background: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+  	/* Safari 5.1+, Chrome 10+ */
+  	background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+  	/* Firefox 3.6+ */
+  	background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+  	/* IE 10 */
+  	background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 250, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+  	/* Opera 11.10+ */
+  	background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+}
+
+.navbar-toggle{
+	// background-color: #00FF00;
+}
+
+.backdrop{
+		
+	
+		
+		div{
+
+			background-color: #FFFFFF;
+			border-left: 1px solid #000000;
+			border-right: 1px solid #000000;
+			height: 100vh;
+		}
+		// 
+	}
+
+main{
+
+	.content-section{
+		// background-color: #FFFFFF;
+		// min-height: 100vh;
+		.text{
+			// background-color: #AAAAAA;
+		}
+	}
+}
+/* Extra small devices (phones, less than 768px) */
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.backdrop{
+		// border-left: 1px solid #000000;
+		// border-right: 1px solid #000000;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.backdrop{
+		// border-left: 1px solid #000000;
+		// border-right: 1px solid #000000;
+	}
+}

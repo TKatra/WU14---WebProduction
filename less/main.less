@@ -1,3 +1,7 @@
+body{
+	position: relative;
+}
+
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -36,34 +40,58 @@
   	background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
 }
 
-.backdrop{
-	z-index: -8;
+
+
+header{
+	z-index: 50;
 	position: fixed;
-	background-color: #FFFFFF;
-	width: 65.33%;
-	height: 100vh;
+	width: 100%;
+	// background-color: #999999;
+
+	border-bottom: 1px solid #000000;
+	box-shadow: 0 0 8px #000000;
+	background: -webkit-linear-gradient(#ffdd56, #a96505); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#ffdd56, #a96505); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#ffdd56, #a96505); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#ffdd56, #a96505); /* Standard syntax (must be last) */
+	nav{
+		// position: fixed;
+		
+		// background-color: #AAAAAA;
+		height: 50px;
+		
+	}
 }
 
 main{
-	// background-color: #000000;
-	// padding: 0;
-	// margin: 0;
 	.main-section{
-		// padding: 0;
-		
-		// background-color: #999999;
-		// min-height: 100vh;
-		.content-section{
-			// opacity: 0.5;
-			// background-color: #AAAAAA;
+		.backdrop{
+			z-index: -8;
+			position: fixed;
+			background-color: #FFFFFF;
+			width: 65.33%;
+			height: 100%;
+		}
+		.main-content{
 			padding: 15px;
 			margin: 50px 0 0 0;
-			// background-color: #AAAAAA;
 		}
 	}
 }
 
+footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	border-top: 1px solid #000000;
+	box-shadow: 0 0 8px #000000;
+	background-color: #AAAAAA;
+	.footer-content{
 
+	}
+}
 
 
 
@@ -84,7 +112,7 @@ main{
 		.main-section{
 			padding: 0;
 
-			.content-section{
+			.main-content{
 				padding: 0px;
 			}
 		}
@@ -104,7 +132,7 @@ main{
 		.main-section{
 			padding: 0;
 
-			.content-section{
+			.main-content{
 				padding: 0px;
 			}
 		}
@@ -129,7 +157,7 @@ main{
 
 	main{
 		.main-section{
-			.content-section{
+			.main-content{
 				padding: 15px;
 			}
 		}
@@ -153,7 +181,7 @@ main{
 
 	main{
 		.main-section{
-			.content-section{
+			.main-content{
 				padding: 15px;
 			}
 		}

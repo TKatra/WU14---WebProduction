@@ -7,7 +7,7 @@
     user-select: none;
 }
 
-div.image-background{
+.image-background{
 	z-index: -10;
 	position: fixed;
 	height: 100vh;
@@ -18,7 +18,7 @@ div.image-background{
 	background-position:50% 50%;
 }
 
-div.gradient-overlay {
+.gradient-overlay {
 	z-index: -9;
 	position: fixed;
 	height: 100vh;
@@ -36,53 +36,126 @@ div.gradient-overlay {
   	background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
 }
 
-.navbar-toggle{
-	// background-color: #00FF00;
+.backdrop{
+	z-index: -8;
+	position: fixed;
+	background-color: #FFFFFF;
+	width: 65.33%;
+	height: 100vh;
 }
 
-.backdrop{
-		
-	
-		
-		div{
-
-			background-color: #FFFFFF;
-			border-left: 1px solid #000000;
-			border-right: 1px solid #000000;
-			height: 100vh;
-		}
-		// 
-	}
-
 main{
-
-	.content-section{
-		// background-color: #FFFFFF;
+	// background-color: #000000;
+	// padding: 0;
+	// margin: 0;
+	.main-section{
+		// padding: 0;
+		
+		// background-color: #999999;
 		// min-height: 100vh;
-		.text{
+		.content-section{
+			// opacity: 0.5;
+			// background-color: #AAAAAA;
+			padding: 15px;
+			margin: 50px 0 0 0;
 			// background-color: #AAAAAA;
 		}
 	}
 }
+
+
+
+
+
+
 /* Extra small devices (phones, less than 768px) */
 /* Small devices (tablets, 768px and up) */
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
+	.image-background{
+		background-color: #FFFFFF;
+	}
 
+	.gradient-overlay{
+		display: none;
+	}
+
+	main{
+		.main-section{
+			padding: 0;
+
+			.content-section{
+				padding: 0px;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.image-background{
+		background-color: #FFFFFF;
+	}
+
+	.gradient-overlay{
+		display: none;
+	}
+
+	main{
+		.main-section{
+			padding: 0;
+
+			.content-section{
+				padding: 0px;
+			}
+		}
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
+
 @media (min-width: 992px) {
+	.image-background{
+		background-color: #444488;
+	}
+
+	.gradient-overlay{
+		display: block;
+	}
+
 	.backdrop{
-		// border-left: 1px solid #000000;
-		// border-right: 1px solid #000000;
+		border-left: 1px solid #000000;
+		border-right: 1px solid #000000;
+	}
+
+	main{
+		.main-section{
+			.content-section{
+				padding: 15px;
+			}
+		}
 	}
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+	.image-background{
+		background-color: #444488;
+	}
+
+	.gradient-overlay{
+		display: block;
+	}
+
 	.backdrop{
-		// border-left: 1px solid #000000;
-		// border-right: 1px solid #000000;
+		border-left: 1px solid #000000;
+		border-right: 1px solid #000000;
+	}
+
+	main{
+		.main-section{
+			.content-section{
+				padding: 15px;
+			}
+		}
 	}
 }

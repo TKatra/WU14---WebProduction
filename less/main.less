@@ -21,6 +21,10 @@ a{
 		color: #000000;
 		text-decoration: none;
 	}
+	&:visited{
+		color: #000000;
+		text-decoration: none;
+	}
 }
 
 
@@ -199,7 +203,7 @@ main{
 			padding: 15px;
 			margin: 50px 0 0 0;
 			// min-height: 80vh;
-			
+
 			.main-title{
 				text-align: center;
 				border-bottom: 2px solid #AAAAAA;
@@ -215,8 +219,31 @@ main{
 			textarea.text-box{
 				height: 100px;
 			}
-			.admin-menu-section{
-				background-color: #AAAAAA;
+			.button{
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				.noselect;
+				margin: 5px 5px;
+				padding: 5px 20px;
+				border:1px solid #000000;
+				border-radius: 5px;
+
+				background: -webkit-linear-gradient(#f3f047, #f0991c); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(#f3f047, #f0991c); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(#f3f047, #f0991c); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(#f3f047, #f0991c); /* Standard syntax (must be last) */
+				
+				&:hover{
+					background: -webkit-linear-gradient(#ffff59, #ff9908); /* For Safari 5.1 to 6.0 */
+					background: -o-linear-gradient(#ffff59, #ff9908); /* For Opera 11.1 to 12.0 */
+					background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */
+					background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
+				}
+				&:active{
+					background: none;
+					background-color: #ffff59;
+				}
 			}
 		}
 	}
@@ -277,6 +304,10 @@ footer{
 
 			.main-content{
 				padding: 15px 0 15px;
+				.button{
+					margin: 5px 0;
+					width: 100%;
+				}
 			}
 		}
 	}

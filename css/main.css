@@ -20,6 +20,10 @@ a:hover {
   color: #000000;
   text-decoration: none;
 }
+a:visited {
+  color: #000000;
+  text-decoration: none;
+}
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -181,8 +185,42 @@ main .main-section .main-content .text-box {
 main .main-section .main-content textarea.text-box {
   height: 100px;
 }
-main .main-section .main-content .admin-menu-section {
-  background-color: #AAAAAA;
+main .main-section .main-content .button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 5px 5px;
+  padding: 5px 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(#f3f047, #f0991c);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#f3f047, #f0991c);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#f3f047, #f0991c);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#f3f047, #f0991c);
+  /* Standard syntax (must be last) */
+}
+main .main-section .main-content .button:hover {
+  background: -webkit-linear-gradient(#ffff59, #ff9908);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#ffff59, #ff9908);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#ffff59, #ff9908);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#ffff59, #ff9908);
+  /* Standard syntax (must be last) */
+}
+main .main-section .main-content .button:active {
+  background: none;
+  background-color: #ffff59;
 }
 footer {
   position: absolute;
@@ -225,6 +263,10 @@ footer {
   }
   main .main-section .main-content {
     padding: 15px 0 15px;
+  }
+  main .main-section .main-content .button {
+    margin: 5px 0;
+    width: 100%;
   }
 }
 @media (min-width: 768px) {

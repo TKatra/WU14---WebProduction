@@ -2,17 +2,50 @@ $(function ()
 {
 	function siteStartup()
 	{
-		$(".trial").remove();
-		$(".main-content").css("margin-bottom", $("footer").height() + 15);
-		$( ".main-content" ).prepend( "<div class='trial'>" + $( window ).width() + " x " + $(window).height() + "<br/>Height of footer:" + $("footer").height() + "<br/>Margin on main-content: "+ parseInt($(".main-content").css("margin-bottom")) +" </div>" );
+		setMainContentMargin();
+		buildDebugWindow();
 	}
 	$( window ).resize(function()
 	{
-		$(".trial").remove();
-		$(".main-content").css("margin-bottom", $("footer").height() + 15);
-		$( ".main-content" ).prepend( "<div class='trial'>" + $( window ).width() + " x " + $(window).height() + "<br/>Height of footer:" + $("footer").height() + "<br/>Margin on main-content: "+ parseInt($(".main-content").css("margin-bottom")) +" </div>" );
-
+		setMainContentMargin();
+		buildDebugWindow();
 	});
+
+	function setMainContentMargin()
+	{
+		$(".main-content").css("margin-bottom", $("footer").height() + 15);
+	}
+
+	function buildDebugWindow()
+	{
+		var currentBootstrapMode;
+		$(".debug").remove();
+
+		if ($(window).width() < 751)
+		{
+			currentBootstrapMode = "xs";
+		}
+		else if ($(window).width() < 975)
+		{
+			currentBootstrapMode = "sm";
+		}
+		else if ($(window).width() < 1183)
+		{
+			currentBootstrapMode = "md";
+		}
+		else if ($(window).width() >= 1183)
+		{
+			currentBootstrapMode = "lg";
+		}
+		
+		$("body").prepend($("<div>")
+		.addClass("debug")
+		.html($( window ).width() + " x " + $(window).height() + "<br/>" +
+			"Height of footer:" + $("footer").height() + "<br/>" +
+			"Margin on main-content: " + parseInt($(".main-content").css("margin-bottom"), 10) + "<br/>" +
+			"Current Bootstrap Mode: ~" + currentBootstrapMode + "~")
+		);
+	}
 	
 	siteStartup();
 });

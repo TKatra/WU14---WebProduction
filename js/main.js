@@ -2,14 +2,39 @@ $(function ()
 {
 	function siteStartup()
 	{
+		$("#admin-add-page").submit(function()
+		{
+			return false;
+		});
+		
+		$( window ).resize(function()
+		{
+			setMainContentMargin();
+			buildDebugWindow();
+		});
+		$(".checkbox-disable").click(checkboxDisableOnClick);
+
+
 		setMainContentMargin();
 		buildDebugWindow();
 	}
-	$( window ).resize(function()
+
+	
+
+	function checkboxDisableOnClick()
 	{
-		setMainContentMargin();
-		buildDebugWindow();
-	});
+		var checkbox = $(this);
+		var textbox = $(this).parents("form").find("input[name=" + $(this).val() + "]");
+
+		if(checkbox.is(":checked") === true)
+		{
+			textbox.prop("disabled", false);
+		}
+		else
+		{
+			textbox.prop("disabled", true);
+		}
+	}
 
 	function setMainContentMargin()
 	{
@@ -46,6 +71,7 @@ $(function ()
 			"Current Bootstrap Mode: ~" + currentBootstrapMode + "~")
 		);
 	}
+	
 	
 	siteStartup();
 });

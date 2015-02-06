@@ -27,7 +27,6 @@ a{
 	}
 }
 
-
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -186,6 +185,8 @@ header{
 	}
 }
 
+
+
 main{
 	display: block;
 	min-height: 100vh;
@@ -209,9 +210,16 @@ main{
 				border-bottom: 2px solid #AAAAAA;
 			}
 
+
 			input[type="text"]:disabled {
 			    background: #dddddd;
-			} 
+			}
+
+			.checkbox-pointer{
+				cursor: pointer;
+				.noselect;
+				font-weight: 400;
+			}
 
 			.text-box{
 				width: 100%;

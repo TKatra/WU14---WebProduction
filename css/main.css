@@ -179,6 +179,16 @@ main .main-section .main-content .main-title {
 main .main-section .main-content input[type="text"]:disabled {
   background: #dddddd;
 }
+main .main-section .main-content .checkbox-pointer {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 400;
+}
 main .main-section .main-content .text-box {
   width: 100%;
 }

@@ -2,22 +2,33 @@ $(function ()
 {
 	function siteStartup()
 	{
-		$("#admin-add-page").submit(function()
-		{
-			return false;
-		});
 
 		$( window ).resize(function()
 		{
 			setMainContentMargin();
 			buildDebugWindow();
 		});
+
+		$("#admin-add-page").submit(function()
+		{
+			return false;
+		});
+
+
+		$(".admin-tools-menu ul").hide();
+
+		$(".admin-tools-menu .button").click(displayAdminMenu);
 		$(".checkbox-disable").click(checkboxDisableOnClick);
 		$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 
 
 		setMainContentMargin();
 		buildDebugWindow();
+	}
+
+	function displayAdminMenu()
+	{
+		$(".admin-tools-menu ul").toggle(100);
 	}
 
 	function checkboxDisplaySectionOnClick()
@@ -56,6 +67,8 @@ $(function ()
 		$(".main-content").css("margin-bottom", $("footer").height() + 15);
 	}
 
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
 	function buildDebugWindow()
 	{
 		var currentBootstrapMode;
@@ -86,7 +99,10 @@ $(function ()
 			"Current Bootstrap Mode: ~" + currentBootstrapMode + "~")
 		);
 	}
-	
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
+
+
 	
 	siteStartup();
 });

@@ -176,6 +176,13 @@ main .main-section .main-content .main-title {
   text-align: center;
   border-bottom: 2px solid #AAAAAA;
 }
+main .main-section .main-content .divisible-section .section-divider-2 {
+  display: inline-block;
+  width: calc(50% - 15px);
+}
+main .main-section .main-content .divisible-section .section-divider-2:last-child {
+  float: right;
+}
 main .main-section .main-content input[type="text"]:disabled {
   background: #dddddd;
 }
@@ -189,11 +196,11 @@ main .main-section .main-content .checkbox-pointer {
   user-select: none;
   font-weight: 400;
 }
-main .main-section .main-content .text-box {
+main .main-section .main-content .big-input {
   width: 100%;
 }
-main .main-section .main-content textarea.text-box {
-  height: 100px;
+main .main-section .main-content textarea.big-input {
+  height: 150px;
 }
 main .main-section .main-content .button {
   cursor: pointer;
@@ -231,6 +238,9 @@ main .main-section .main-content .button:hover {
 main .main-section .main-content .button:active {
   background: none;
   background-color: #ffff59;
+}
+main .main-section .main-content .menu-settings {
+  display: none;
 }
 footer {
   position: absolute;
@@ -275,8 +285,14 @@ footer {
     padding: 15px 0 15px;
   }
   main .main-section .main-content .button {
-    margin: 5px 0;
+    margin: 10px 0 0;
     width: 100%;
+  }
+  main .main-section .main-content .divisible-section .section-divider-2 {
+    width: 100%;
+  }
+  main .main-section .main-content .divisible-section .section-divider-2:last-child {
+    float: none;
   }
 }
 @media (min-width: 768px) {

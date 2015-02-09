@@ -210,6 +210,18 @@ main{
 				border-bottom: 2px solid #AAAAAA;
 			}
 
+			.divisible-section{
+				.section-divider-2{
+					display: inline-block;
+					width:calc(~'50% - 15px');
+					// vertical-align: top;
+					&:last-child{
+
+						float:right;
+					}
+				}
+				
+			}
 
 			input[type="text"]:disabled {
 			    background: #dddddd;
@@ -221,11 +233,11 @@ main{
 				font-weight: 400;
 			}
 
-			.text-box{
+			.big-input{
 				width: 100%;
 			}
-			textarea.text-box{
-				height: 100px;
+			textarea.big-input{
+				height: 150px;
 			}
 			.button{
 				cursor: pointer;
@@ -252,6 +264,9 @@ main{
 					background: none;
 					background-color: #ffff59;
 				}
+			}
+			.menu-settings{
+				display: none;
 			}
 		}
 	}
@@ -313,8 +328,21 @@ footer{
 			.main-content{
 				padding: 15px 0 15px;
 				.button{
-					margin: 5px 0;
+					margin: 10px 0 0;
 					width: 100%;
+				}
+
+				.divisible-section{
+					.section-divider-2{
+						// display: inline-block;
+						width: 100%;
+						// vertical-align: top;
+						&:last-child{
+
+							float:none;
+						}
+					}
+					
 				}
 			}
 		}

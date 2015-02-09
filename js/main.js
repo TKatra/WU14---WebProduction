@@ -6,20 +6,35 @@ $(function ()
 		{
 			return false;
 		});
-		
+
 		$( window ).resize(function()
 		{
 			setMainContentMargin();
 			buildDebugWindow();
 		});
 		$(".checkbox-disable").click(checkboxDisableOnClick);
+		$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 
 
 		setMainContentMargin();
 		buildDebugWindow();
 	}
 
-	
+	function checkboxDisplaySectionOnClick()
+	{
+		var checkbox = $(this);
+		var section = $(this).parents("form").find("." + checkbox.val());
+		console.log(section);
+
+		if(checkbox.is(":checked") === true)
+		{
+			section.show(300);
+		}
+		else
+		{
+			section.hide(300);
+		}
+	}
 
 	function checkboxDisableOnClick()
 	{

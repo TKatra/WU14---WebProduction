@@ -201,6 +201,7 @@ main .main-section .main-content .big-input {
 }
 main .main-section .main-content textarea.big-input {
   height: 150px;
+  resize: none;
 }
 main .main-section .main-content .button {
   cursor: pointer;

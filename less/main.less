@@ -65,7 +65,12 @@ a{
   	background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
 }
 
-
+.button{
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	.noselect;
+}
 
 header{
 	z-index: 50;
@@ -185,7 +190,57 @@ header{
 	}
 }
 
+.admin-tools-menu{
+	z-index: 40;
+	position: fixed;
+	top: 50px;
+	right: 0px;
+	border-radius: 0 0 0 15px;
+	// width: auto;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
 
+	ul{
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		// background-color: #999999;
+		width: 100%;
+		li{
+			display: block;
+			cursor: pointer;
+			.noselect;
+			width: 100%;
+			padding: 5px 20px;
+			// background-color: #AAAAAA;
+			border-bottom: 1px solid #000000;
+			&:hover{
+				background-color: #fff5ce;
+				//ffeec5
+				//ddfdff
+			}
+			&:active{
+				background-color: #ffe992;
+				//ffeec5
+				//
+			}
+		}
+	}
+	.button{
+		width: 100%;
+		padding: 10px 25px;
+		
+		background-color: #20e2ee;
+		&:hover{
+			background-color: #20e9f5;
+		}
+		&:active{
+			background-color: #48f2fc;
+		}
+	}
+}
 
 main{
 	display: block;
@@ -241,10 +296,6 @@ main{
 				resize:none;
 			}
 			.button{
-				cursor: pointer;
-				display: inline-block;
-				text-align: center;
-				.noselect;
 				margin: 5px 5px;
 				padding: 5px 20px;
 				border:1px solid #000000;
@@ -294,17 +345,23 @@ footer{
 	}
 }
 
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 .debug{
 	z-index: 10000;
 	position: fixed;
 	display: inline-block;
-	top:0;
+	bottom:0;
 	right: 0;
 	padding: 5px;
 	opacity: 0.8;
 	background-color: #20e2ee;
 	border-radius: 0 0 0 5px;
 }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////

@@ -210,10 +210,10 @@ header nav ul ul li ul {
   background-color: #20e2ee;
 }
 .admin-tools-menu .button:hover {
-  background-color: #20e9f5;
+  background-color: #38eef9;
 }
 .admin-tools-menu .button:active {
-  background-color: #48f2fc;
+  background-color: #6ef7ff;
 }
 main {
   display: block;
@@ -317,7 +317,7 @@ footer {
   padding: 5px;
   opacity: 0.8;
   background-color: #20e2ee;
-  border-radius: 0 0 0 5px;
+  border-radius: 5px 0 0 0;
 }
 /* Extra small devices (phones, less than 768px) */
 /* Small devices (tablets, 768px and up) */

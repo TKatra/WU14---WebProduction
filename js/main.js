@@ -17,7 +17,8 @@ $(function ()
 
 		$(".admin-tools-menu ul").hide();
 
-		$(".admin-tools-menu .button").click(displayAdminMenu);
+		$("header nav .hamburger-button").click(toggleHeaderMenu);
+		$(".admin-tools-menu .button").click(toggleAdminMenu);
 		$(".checkbox-disable").click(checkboxDisableOnClick);
 		$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 
@@ -26,9 +27,14 @@ $(function ()
 		buildDebugWindow();
 	}
 
-	function displayAdminMenu()
+	function toggleHeaderMenu()
 	{
-		$(".admin-tools-menu ul").toggle(100);
+		$("header nav > ul").toggleClass("display-header-menu");
+	}
+
+	function toggleAdminMenu()
+	{
+		$(".admin-tools-menu ul").slideToggle(150);
 	}
 
 	function checkboxDisplaySectionOnClick()
@@ -39,11 +45,11 @@ $(function ()
 
 		if(checkbox.is(":checked") === true)
 		{
-			section.show(300);
+			section.show(150);
 		}
 		else
 		{
-			section.hide(300);
+			section.hide(150);
 		}
 	}
 

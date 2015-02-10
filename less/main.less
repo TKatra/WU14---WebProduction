@@ -90,13 +90,85 @@ header{
 		
 		// background-color: #AAAAAA;
 		height: 50px;
+		text-align: center;
 		// border-left: 1px solid #000000;
+
+		.home-link{
+			display: inline-block;
+			height: 100%;
+			// width: 50%;
+			height: 50px;
+			padding: 16px 0 14px;
+			max-height: 50px;
+			margin: 0 -2px;
+			border-left: 1px solid #000000;
+			border-right: 1px solid #000000;
+			img{
+				margin: -15px auto 0;
+				max-width: 100%;
+				&.logo-small{
+					display: none;
+				}
+				&.logo-standard{
+					display: inline-block;
+				}
+			}
+			&:hover{
+				background: -webkit-linear-gradient(#ffff59, #ff9908); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(#ffff59, #ff9908); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
+			}
+		}
+		.menu-right{
+			display: inline-block;
+			float: right;
+			
+
+			.hamburger-button{
+				display: inline-block;
+				// float: right;
+				width: 50%;
+				font-size: 22px;
+				padding: 15px 0;
+
+				max-height: 50px;
+				margin: -1px -2px;
+				border-right: 1px solid #000000;
+				.button;
+				// background-color: #AAAAAA;
+				&:hover{
+					background: -webkit-linear-gradient(#ffff59, #ff9908); /* For Safari 5.1 to 6.0 */
+					background: -o-linear-gradient(#ffff59, #ff9908); /* For Opera 11.1 to 12.0 */
+					background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */
+					background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
+				}
+			}
+			.login-section{
+				display: inline-block;
+				float: right;
+				text-align: right;
+				p{
+					margin: 0;
+				}
+				a{
+					text-decoration: underline;
+					&:hover{
+						color: #FFFFFF;
+					}
+				}
+			}
+		}
+		
+
 		ul{
+			display: inline-block;
 			height: 100%;
 			padding: 0;
+			margin: 0;
 			list-style: none;
 			text-align: center;
-			
+
 			li{
 				// position: relative;
 				position:relative;
@@ -104,22 +176,25 @@ header{
 				height: 100%;
 				
 				margin: 0 auto;
-				&:first-child{
-					img{
-						margin: -7px 0 0;
-					}
-					a{
-						border-left: 1px solid #000000;
-						// padding: 0 20px;
-					}
-				}
+				// &:first-child{
+				// 	img{
+				// 		margin: -7px 0 0;
+				// 	}
+				// 	a{
+				// 		border-left: 1px solid #000000;
+				// 		// padding: 0 20px;
+				// 	}
+				// }
+
+
 				&:hover > ul {
 					z-index: 40;
 					display: block;
 				}
 				a{
 					display: inline-block;
-					max-height: 50px;
+					// max-height: 50px;
+					// height: 50px;
 					font-size: 30px;
 					font-family: 'Cuprum', sans-serif;
 					// padding: auto;
@@ -128,7 +203,7 @@ header{
 					margin: 0 -2px;
 					border-right: 1px solid #000000;
 					// padding: 6px 20px 3px;
-					padding: 5px;
+					padding: 6px 5px 1px;
 					// padding: 
 
 					&:hover{
@@ -139,6 +214,8 @@ header{
 						background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
 					}
 				}
+
+				
 			}
 
 			ul{
@@ -158,12 +235,13 @@ header{
 					width: 100%;
 					margin: 0;
 
+
 					a{
 						display: block;
 						margin: -10px 0 0;
 						font-size: 20px;
 						width: 100%;
-						// padding: 5px 5px 4px;
+						padding: 5px;
 
 						border-bottom: 1px solid #000000;
 						border-left: 1px solid #000000;
@@ -188,6 +266,8 @@ header{
 			}
 		}
 	}
+
+
 }
 
 .admin-tools-menu{
@@ -383,6 +463,39 @@ footer{
 		display: none;
 	}
 
+	header nav{
+		.home-link{
+			width: 33%;
+			padding: 16px 0 14px;
+			img{
+				&.logo-small{
+					display: inline-block;
+				}
+				&.logo-standard{
+					display: none;
+				}
+			}
+		}
+		.menu-right{
+			width: 67.4%;
+
+			.hamburger-button{
+				display: inline-block;
+				width: 33%
+			}
+			.login-section{
+				width: 66%;
+				max-height: 50px;
+				overflow: auto;
+				p,a{
+					font-size: 12px;
+				}
+			}
+		}
+		
+		
+	}
+
 	main{
 		.main-section{
 			padding: 0;
@@ -420,12 +533,94 @@ footer{
 		display: none;
 	}
 
+	header nav{
+		.home-link{
+			width: 33%;
+			padding: 16px 0 14px;
+			img{
+				&.logo-small{
+					display: none;
+				}
+				&.logo-standard{
+					display: inline-block;
+				}
+			}
+		}
+		.menu-right{
+			width: 67.4%;
+			.hamburger-button{
+				display: inline-block;
+				width: 33%
+			}
+			.login-section{
+				width: 66%;
+				// font-size: 12px;
+			}
+		}
+		// ul{
+		// 	display: inline-block;
+		// 	background-color: #AAAAAA;
+		// }
+	}
+	
+
 	main{
 		.main-section{
 			padding: 0;
 
 			.main-content{
 				padding: 15px 0 15px;
+			}
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	header nav{
+		> ul{
+			position: absolute;
+			display: none;
+			left: 0;
+			// background-color: #AAAAAA;
+			// width: 50%;
+			height: auto;
+			text-align: left;
+			white-space: nowrap;
+			&.display-header-menu{
+				display: block;
+			}
+			li{
+				position: relative;
+				display: block;
+				width: 100%;
+				// border: 5px solid #000000;
+				a{
+					margin: 0;
+					padding:  0;
+					font-size: 20px;
+					width: 100%;
+					border: 1px solid #000000;
+					background: -webkit-linear-gradient(#f3f047, #f0991c); /* For Safari 5.1 to 6.0 */
+					background: -o-linear-gradient(#f3f047, #f0991c); /* For Opera 11.1 to 12.0 */
+					background: -moz-linear-gradient(#f3f047, #f0991c); /* For Firefox 3.6 to 15 */
+					background: linear-gradient(#f3f047, #f0991c); /* Standard syntax (must be last) */
+				}
+				> ul {
+					position: absolute;
+					top:0;
+					left: 100%;
+					li{
+						margin: 0 0 10px;
+						height: auto;
+						// padding: 0;
+					}
+					a{
+						// margin: 0;
+						padding: 0 5px;
+						// margin: 0 0 -2px
+
+					}
+				}
 			}
 		}
 	}
@@ -440,6 +635,41 @@ footer{
 
 	.gradient-overlay{
 		display: block;
+	}
+
+	header nav{
+		ul{
+			display: inline-block;
+			background-color: transparent;
+		}
+		.home-link{
+			width: auto;
+			padding: 15px;
+
+			img{
+				&.logo-small{
+					display: none;
+				}
+				&.logo-standard{
+					display: inline-block;
+				}
+			}
+		}
+
+		.menu-right{
+			width: auto;
+			border: none;
+			.hamburger-button{
+				display: none;
+			}
+			.login-section{
+				width: auto;
+				font-size: 14px;
+			}
+		}
+		> ul{
+			display: inline-block;
+		}
 	}
 
 	.backdrop{
@@ -464,6 +694,36 @@ footer{
 
 	.gradient-overlay{
 		display: block;
+	}
+
+	header nav{
+		.home-link{
+			width: auto;
+			padding: 15px;
+
+			img{
+				&.logo-small{
+					display: none;
+				}
+				&.logo-standard{
+					display: inline-block;
+				}
+			}
+		}
+
+		.menu-right{
+			width: auto;
+			border: none;
+			.hamburger-button{
+				display: none;
+			}
+			.login-section{
+				width: auto;
+			}
+		}
+		> ul{
+			display: inline-block;
+		}
 	}
 
 	.backdrop{

@@ -2,7 +2,6 @@ $(function ()
 {
 	function siteStartup()
 	{
-
 		$( window ).resize(function()
 		{
 			setMainContentMargin();
@@ -14,18 +13,87 @@ $(function ()
 			return false;
 		});
 
+		// var currentPage = location.href.split("/");
+		// console.log("currentPage: ", currentPage);
+		// currentPage = currentPage[currentPage.length -1];
+		// console.log("currentPage: ", currentPage);
 
 		$(".admin-tools-menu ul").hide();
+		$(".main-content article").hide();
 
 		$("header nav .hamburger-button").click(toggleHeaderMenu);
 		$(".admin-tools-menu .button").click(toggleAdminMenu);
 		$(".checkbox-disable").click(checkboxDisableOnClick);
 		$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 
-
+		addPushPopListeners();
 		setMainContentMargin();
 		buildDebugWindow();
+
+		var currentPage = location.href.split("/");
+		currentPage = currentPage[currentPage.length -1];
+		loadPage(currentPage);
 	}
+
+	function newPage(pageUrl)
+	{
+		loadPage(pageUrl);
+		history.pushState(null,null,pageUrl);
+	}
+
+	function popPage(pageUrl)
+	{
+		loadPage(pageUrl);
+	}
+
+	function loadPage(pageUrl)
+	{
+		console.log("pageUrl: ", pageUrl);
+
+		$(".main-content article").hide();
+		if (!pageUrl)
+		{
+			console.log("pageUrl is undefined, setting it to 'home'");
+			pageUrl = "home";
+			console.log("pageUrl: ", pageUrl);
+		}
+		console.log("pageUrl search for article: ", pageUrl);
+		$(".main-content article#"+pageUrl).fadeIn(500);
+
+		
+	}
+
+	function addPushPopListeners()
+	{
+		$(document).on("click", "a", function(event)
+		{
+			if ($(this).attr("href").indexOf("://") >= 0)
+			{
+				return;
+			}
+
+
+			if ($(this).attr("href") != null && $(this).attr("href") !== "#")
+			{
+				newPage($(this).attr("href"));
+			}
+
+			event.preventDefault();
+		});
+
+		addEventListener("popstate", onPop);
+	}
+
+	function onPop()
+	{
+		console.log("onPop triggered!");
+		var currentPage = location.href.split("/");
+		currentPage = currentPage[currentPage.length -1];
+		console.log("currentPage: ", currentPage);
+
+		loadPage(currentPage);
+	}
+	
 
 	function toggleHeaderMenu()
 	{
@@ -72,6 +140,8 @@ $(function ()
 	{
 		$(".main-content").css("margin-bottom", $("footer").height() + 15);
 	}
+
+
 
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////

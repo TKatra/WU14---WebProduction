@@ -8,7 +8,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Cuprum|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap/bootstrap.js"></script>
 		<script src="js/main.js"></script>
 	</head>
 	<body>
@@ -18,7 +18,7 @@
 		<header class="container-fluid">
 			<nav> <!-- row col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 -->
 				<!-- <div class="header-content row col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2"></div> -->
-				<a class="home-link" href="">
+				<a class="home-link" href="home">
 					<img class="logo-standard" src="img/TheGameBoxLogo_small.png">
 					<img class="logo-small" src="img/TheGameBoxLogo_box_small.png">
 				</a>
@@ -27,8 +27,8 @@
 
 					</div>
 					<section class="login-section">
-						<p>Mfasdwae Sundström</p>
-						<a href="">Log out</a>
+						<p></p>
+						<a href="login">Log in</a>
 					</section>
 				</section>
 				<ul>
@@ -93,13 +93,13 @@
 		<section class="admin-tools-menu">
 			<ul>
 				<li>
-					Add new page
+					<a href="admin-add-page">Add new page</a>
 				</li>
 				<li>
-					Edit current page
+					<a href="">Edit current page</a>
 				</li>
 				<li>
-					Edit menu
+					<a href="">Edit menu</a> 
 				</li>
 			</ul>
 			<div class="button">
@@ -113,12 +113,39 @@
 				<div class="backdrop"></div>
 				<section class="main-content">
 
-					<h1 class="main-title">PLACEHOLDER</h1>
+					
 
-					<section id="admin-add-page">
+					<article id="home">
+						<h1>Home</h1>
+						<section class="page-image">
+							<img src="img/TheGameBoxLogo.jpg">
+						</section>
+						
+
+						<section class="page-body">
+							<p>
+								Welcome to the Game Box!
+							</p>
+						</section>
+					</article>
+
+					<article id="page-template">
+						<img class="page-image" src="">
+
+						<section class="page-body">
+
+						</section>
+					</article>
+
+					<article id="login">
+						<h1>Login</h1>
+					</article>
+
+					<article id="admin-add-page">
 						<form>
-							<section class="divisible-section">
-								<section class="section-divider-2">
+							<h1>Add page</h1>
+							<section class="splittable-section">
+								<section class="section-splitter-2">
 									<h3>Page title</h3>
 									<input class="big-input" type="text" name="pageTitle" placeholder="Input page title">
 
@@ -132,7 +159,7 @@
 									<textarea class="big-input" name="pageBody" placeholder="Input page body text"></textarea>
 								</section>
 
-								<section class="section-divider-2">
+								<section class="section-splitter-2">
 									<h3>Menu</h3>
 									<label class="checkbox-pointer">
 										<input class="checkbox-pointer checkbox-display-section" type="checkbox" name="manuallyEditURL" value="menu-settings"> Add to menu
@@ -165,14 +192,18 @@
 							</section>
 							
 						</form>
-					</section>
+					</article>
 
 				</section>
 			</section>
 		</main>
 		<footer class="container-fluid">
-			<section class="footer-content"> <!-- row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 -->
-				PLACEHOLDER
+			<section class="footer-content">
+				
+				<address class="address-area">
+					© Tobias Katra 2015 - Walk Street 101, 40404, Weed Ville, Carrot Land
+					<!-- <a href="mailto:tobiaskatra@hotmail.com">Tobias Katra</a> -->
+				</address>
 			</section>
 		</footer>
 	</body>

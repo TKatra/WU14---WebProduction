@@ -12,15 +12,10 @@ p,
 a {
   font-family: 'Roboto Slab', serif;
 }
-a {
-  color: #000000;
-  text-decoration: none;
-}
-a:hover {
-  color: #000000;
-  text-decoration: none;
-}
-a:visited {
+a:hover,
+a:visited,
+a:link,
+a:active {
   color: #000000;
   text-decoration: none;
 }
@@ -266,8 +261,13 @@ header nav ul ul li ul {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.admin-tools-menu ul li a {
+  display: block;
+  font-family: sans-serif;
   width: 100%;
   padding: 5px 20px;
+  margin: 0;
   border-bottom: 1px solid #000000;
 }
 .admin-tools-menu ul li:hover {
@@ -302,15 +302,25 @@ main .main-section .main-content {
   padding: 15px;
   margin: 50px 0 0 0;
 }
-main .main-section .main-content .main-title {
+main .main-section .main-content .page-image {
+  width: 100%;
+}
+main .main-section .main-content .page-image img {
+  display: block;
+  margin: 0 auto 25px;
+  max-height: 200px;
+  max-width: 90%;
+  border: 5px solid #AAAAAA;
+}
+main .main-section .main-content h1 {
   text-align: center;
   border-bottom: 2px solid #AAAAAA;
 }
-main .main-section .main-content .divisible-section .section-divider-2 {
+main .main-section .main-content .splittable-section .section-splitter-2 {
   display: inline-block;
   width: calc(50% - 15px);
 }
-main .main-section .main-content .divisible-section .section-divider-2:last-child {
+main .main-section .main-content .splittable-section .section-splitter-2:last-child {
   float: right;
 }
 main .main-section .main-content input[type="text"]:disabled {
@@ -380,6 +390,19 @@ footer {
   background: linear-gradient(#a96505, #cf8722);
   /* Standard syntax (must be last) */
 }
+footer .footer-content {
+  text-align: center;
+}
+footer .footer-content .address-area {
+  margin: 0;
+  padding: 0;
+}
+footer .footer-content .address-area a {
+  text-decoration: underline;
+}
+footer .footer-content .address-area a:hover {
+  color: #FFFFFF;
+}
 .debug {
   z-index: 10000;
   position: fixed;
@@ -436,10 +459,10 @@ footer {
     margin: 10px 0 0;
     width: 100%;
   }
-  main .main-section .main-content .divisible-section .section-divider-2 {
+  main .main-section .main-content .splittable-section .section-splitter-2 {
     width: 100%;
   }
-  main .main-section .main-content .divisible-section .section-divider-2:last-child {
+  main .main-section .main-content .splittable-section .section-splitter-2:last-child {
     float: none;
   }
 }

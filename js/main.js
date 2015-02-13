@@ -2,6 +2,8 @@ $(function ()
 {
 	function siteStartup()
 	{
+		// createSubmitFunctions();
+
 		$( window ).resize(function()
 		{
 			setMainContentMargin();
@@ -13,10 +15,31 @@ $(function ()
 			return false;
 		});
 
-		// var currentPage = location.href.split("/");
-		// console.log("currentPage: ", currentPage);
-		// currentPage = currentPage[currentPage.length -1];
-		// console.log("currentPage: ", currentPage);
+		$("#log-in").submit(function()
+		{
+			return false;
+		});
+
+		$("#create-new-account").submit(function()
+		{
+			// var form = $(this);
+			var firstName = $(this).find("input[name=firstName]").val();
+			var lastName = $(this).find("input[name=lastName]").val();
+			var email = $(this).find("input[name=email]").val();
+			var password = $(this).find("input[name=password]").val();
+			var repeatPassword = $(this).find("input[name=repeatPassword]").val();
+
+			if (password === repeatPassword)
+			{
+				console.log("Passwords match!");
+			}
+			else
+			{
+				console.log("Passwords don't match");
+			}
+
+			return false;
+		});
 
 		$(".admin-tools-menu ul").hide();
 		$(".main-content article").hide();
@@ -30,20 +53,27 @@ $(function ()
 		setMainContentMargin();
 		buildDebugWindow();
 
-		var currentPage = location.href.split("/");
-		currentPage = currentPage[currentPage.length -1];
-		loadPage(currentPage);
+		loadPage(getCurrentPage());
+	}
+
+	function contactPHP(request, successFunction)
+	{
+		$.ajax({
+			url:"php/main.php",
+			dataType: "json",
+			data: request,
+			success: successFunction,
+			error:function(data)
+			{
+				console.log("AJAX ERROR: ", data.responseText);
+			}
+		});
 	}
 
 	function newPage(pageUrl)
 	{
 		loadPage(pageUrl);
 		history.pushState(null,null,pageUrl);
-	}
-
-	function popPage(pageUrl)
-	{
-		loadPage(pageUrl);
 	}
 
 	function loadPage(pageUrl)
@@ -60,7 +90,7 @@ $(function ()
 		console.log("pageUrl search for article: ", pageUrl);
 		$(".main-content article#"+pageUrl).fadeIn(500);
 
-		
+
 	}
 
 	function addPushPopListeners()
@@ -71,7 +101,6 @@ $(function ()
 			{
 				return;
 			}
-
 
 			if ($(this).attr("href") != null && $(this).attr("href") !== "#")
 			{
@@ -86,14 +115,16 @@ $(function ()
 
 	function onPop()
 	{
-		console.log("onPop triggered!");
-		var currentPage = location.href.split("/");
-		currentPage = currentPage[currentPage.length -1];
-		console.log("currentPage: ", currentPage);
-
-		loadPage(currentPage);
+		loadPage(getCurrentPage());
 	}
 	
+	function getCurrentPage()
+	{
+		var currentPage = location.href.split("/");
+		currentPage = currentPage[currentPage.length -1];
+
+		return currentPage;
+	}
 
 	function toggleHeaderMenu()
 	{

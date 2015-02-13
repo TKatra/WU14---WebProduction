@@ -1,45 +1,17 @@
 $(function ()
 {
-	function siteStartup()
+	siteStartup();
+});
+
+function siteStartup()
 	{
 		// createSubmitFunctions();
 
-		$( window ).resize(function()
-		{
-			setMainContentMargin();
-			buildDebugWindow();
-		});
+		$( window ).resize(onWindowResize);
 
-		$("#admin-add-page").submit(function()
-		{
-			return false;
-		});
-
-		$("#log-in").submit(function()
-		{
-			return false;
-		});
-
-		$("#create-new-account").submit(function()
-		{
-			// var form = $(this);
-			var firstName = $(this).find("input[name=firstName]").val();
-			var lastName = $(this).find("input[name=lastName]").val();
-			var email = $(this).find("input[name=email]").val();
-			var password = $(this).find("input[name=password]").val();
-			var repeatPassword = $(this).find("input[name=repeatPassword]").val();
-
-			if (password === repeatPassword)
-			{
-				console.log("Passwords match!");
-			}
-			else
-			{
-				console.log("Passwords don't match");
-			}
-
-			return false;
-		});
+		$("#admin-add-page").submit(adminAddPageSubmit);
+		$("#log-in").submit(logInSubmit);
+		$("#create-new-account").submit(createNewAccountOnSubmit);
 
 		$(".admin-tools-menu ul").hide();
 		$(".main-content article").hide();
@@ -70,10 +42,12 @@ $(function ()
 		});
 	}
 
-	function newPage(pageUrl)
+	function getCurrentPage()
 	{
-		loadPage(pageUrl);
-		history.pushState(null,null,pageUrl);
+		var currentPage = location.href.split("/");
+		currentPage = currentPage[currentPage.length -1];
+
+		return currentPage;
 	}
 
 	function loadPage(pageUrl)
@@ -89,41 +63,12 @@ $(function ()
 		}
 		console.log("pageUrl search for article: ", pageUrl);
 		$(".main-content article#"+pageUrl).fadeIn(500);
-
-
 	}
 
-	function addPushPopListeners()
+	function newPage(pageUrl)
 	{
-		$(document).on("click", "a", function(event)
-		{
-			if ($(this).attr("href").indexOf("://") >= 0)
-			{
-				return;
-			}
-
-			if ($(this).attr("href") != null && $(this).attr("href") !== "#")
-			{
-				newPage($(this).attr("href"));
-			}
-
-			event.preventDefault();
-		});
-
-		addEventListener("popstate", onPop);
-	}
-
-	function onPop()
-	{
-		loadPage(getCurrentPage());
-	}
-	
-	function getCurrentPage()
-	{
-		var currentPage = location.href.split("/");
-		currentPage = currentPage[currentPage.length -1];
-
-		return currentPage;
+		loadPage(pageUrl);
+		history.pushState(null,null,pageUrl);
 	}
 
 	function toggleHeaderMenu()
@@ -208,8 +153,3 @@ $(function ()
 	}
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
-
-
-	
-	siteStartup();
-});

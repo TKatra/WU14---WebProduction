@@ -9,6 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="js/bootstrap/bootstrap.js"></script>
+		
+		<!-- // <script src="js/submits.js"></script> -->
+		<!-- // <script src="js/eventListeners.js"></script> -->
 		<script src="js/main.js"></script>
 	</head>
 	<body>
@@ -142,7 +145,7 @@
 							<h1>Log in</h1>
 
 							<h3>Email</h3>
-							<input class="big-input" type="email"  pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" name="email" placeholder="Input your email">
+							<input class="big-input" type="email"  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" name="email" placeholder="Input your email" required>
 
 							<h3>Password</h3>
 							<input class="big-input" type="password" name="password" placeholder="Type your password">
@@ -160,14 +163,19 @@
 
 							<h3>First name</h3>
 							<input class="big-input" type="text" name="firstName" placeholder="Type your first name"required>
+
 							<h3>Last name</h3>
 							<input class="big-input" type="text" name="lastName" placeholder="Type your last name"required>
+
 							<h3>Email</h3>
-							<input class="big-input" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" placeholder="Input your email">
+							<input class="big-input" type="email"  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" name="email" placeholder="Input your email" required>
+
 							<h3>Password</h3>
 							<input class="big-input" type="password" name="password" placeholder="Type your password"required>
+
 							<h3>Repeat password</h3>
 							<input class="big-input" type="password" name="repeatPassword" placeholder="Type your password again"required>
+
 							<button class="button" type="submit">
 								Create account
 							</button>

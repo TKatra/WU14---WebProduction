@@ -28,7 +28,7 @@
 					</div>
 					<section class="login-section">
 						<p></p>
-						<a href="login">Log in</a>
+						<a href="log-in">Log in</a>
 					</section>
 				</section>
 				<ul>
@@ -137,13 +137,47 @@
 						</section>
 					</article>
 
-					<article id="login">
-						<h1>Login</h1>
+					<article id="log-in">
+						<form>
+							<h1>Log in</h1>
+
+							<h3>Email</h3>
+							<input class="big-input" type="email"  pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" name="email" placeholder="Input your email">
+
+							<h3>Password</h3>
+							<input class="big-input" type="password" name="password" placeholder="Type your password">
+							<button class="button" type="submit">
+								Log in
+							</button>
+
+							<a class="button" href="create-new-account">Create new account</a>
+						</form>
+					</article>
+
+					<article id="create-new-account">
+						<form>
+							<h1>Create new account</h1>
+
+							<h3>First name</h3>
+							<input class="big-input" type="text" name="firstName" placeholder="Type your first name"required>
+							<h3>Last name</h3>
+							<input class="big-input" type="text" name="lastName" placeholder="Type your last name"required>
+							<h3>Email</h3>
+							<input class="big-input" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" placeholder="Input your email">
+							<h3>Password</h3>
+							<input class="big-input" type="password" name="password" placeholder="Type your password"required>
+							<h3>Repeat password</h3>
+							<input class="big-input" type="password" name="repeatPassword" placeholder="Type your password again"required>
+							<button class="button" type="submit">
+								Create account
+							</button>
+						</form>
 					</article>
 
 					<article id="admin-add-page">
 						<form>
 							<h1>Add page</h1>
+
 							<section class="splittable-section">
 								<section class="section-splitter-2">
 									<h3>Page title</h3>
@@ -186,9 +220,6 @@
 								<button class="button" type="submit">
 								Add new page
 								</button>
-								<div class="button">
-									Butt-on
-								</div>
 							</section>
 							
 						</form>

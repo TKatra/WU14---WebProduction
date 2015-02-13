@@ -8,8 +8,7 @@ h3,
 h4 {
   font-family: 'Cuprum', sans-serif;
 }
-p,
-a {
+p {
   font-family: 'Roboto Slab', serif;
 }
 a:hover,
@@ -57,12 +56,18 @@ a:active {
   cursor: pointer;
   display: inline-block;
   text-align: center;
+  font-family: sans-serif;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.button a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 header {
   z-index: 50;
@@ -127,12 +132,18 @@ header nav .menu-right .hamburger-button {
   cursor: pointer;
   display: inline-block;
   text-align: center;
+  font-family: sans-serif;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+header nav .menu-right .hamburger-button a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 header nav .menu-right .hamburger-button:hover {
   background: -webkit-linear-gradient(#ffff59, #ff9908);
@@ -344,7 +355,7 @@ main .main-section .main-content textarea.big-input {
   resize: none;
 }
 main .main-section .main-content .button {
-  margin: 5px 5px;
+  margin: 10px 5px 0;
   padding: 5px 20px;
   border: 1px solid #000000;
   border-radius: 5px;

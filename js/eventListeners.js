@@ -1,22 +1,18 @@
-function addPushPopListeners()
+function linkOnClick(event)
 {
-	$(document).on("click", "a", function(event)
+	if ($(this).attr("href").indexOf("://") >= 0)
 	{
-		if ($(this).attr("href").indexOf("://") >= 0)
-		{
-			return;
-		}
+		return;
+	}
 
-		if ($(this).attr("href") != null && $(this).attr("href") !== "#")
-		{
-			newPage($(this).attr("href"));
-		}
+	if ($(this).attr("href") != null && $(this).attr("href") !== "#")
+	{
+		newPage($(this).attr("href"));
+	}
 
-		event.preventDefault();
-	});
-
-	addEventListener("popstate", onPop);
+	event.preventDefault();
 }
+
 
 function onPop()
 {

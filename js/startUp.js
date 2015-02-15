@@ -6,7 +6,6 @@ $(function ()
 function siteStartup()
 {
 	$( window ).resize(onWindowResize);
-	$(document).on("click", "a", linkOnClick);
 	addEventListener("popstate", onPop);
 
 	$("#admin-add-page").submit(adminAddPageSubmit);
@@ -16,12 +15,12 @@ function siteStartup()
 	$(".admin-tools-menu ul").hide();
 	$(".main-content article").hide();
 
+	$(document).on("click", "a", linkOnClick);
 	$("header nav .hamburger-button").click(headerHamburgerOnClick);
 	$(".admin-tools-menu .button").click(adminMenuButtonOnClick);
 	$(".checkbox-disable").click(checkboxDisableOnClick);
 	$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
-
-	// addPushPopListeners();
+	
 	setMainContentMargin();
 	buildDebugWindow();
 

@@ -20,12 +20,13 @@ function createNewAccountOnSubmit()
 	{
 		console.log("Passwords match!");
 
-		var requestData = {};
-		requestData.commandLine = "createNewAccount";
-		requestData.firstName = firstName;
-		requestData.lastName = lastName;
-		requestData.email = email;
-		requestData.password = password;
+		var requestData = {
+			commandLine : "createNewAccount",
+			firstName : firstName,
+			lastName : lastName,
+			email : email,
+			password : password
+		};
 		console.log("requestData: ", requestData);
 		// contactPHP(requestData, loadPage);
 	}

@@ -14,6 +14,7 @@ function siteStartup()
 
 	$(".admin-tools-menu ul").hide();
 	$(".main-content article").hide();
+	$("#admin-add-page input[type=checkbox]").attr("checked", false);
 
 	$(document).on("click", "a", linkOnClick);
 	$("header nav .hamburger-button").click(headerHamburgerOnClick);
@@ -22,7 +23,7 @@ function siteStartup()
 	$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 	
 	setMainContentMargin();
-	buildDebugWindow();
+	// buildDebugWindow();
 
 	loadPage(getCurrentPage());
 }

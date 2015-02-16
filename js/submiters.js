@@ -5,6 +5,16 @@ function adminAddPageSubmit()
 
 function logInSubmit()
 {
+	var email = $(this).find("input[name=email]");
+	var password = $(this).find("input[name=password]");
+
+	var requestData = {
+		commandLine : "logIn",
+		email : email,
+		password : password
+	}
+
+	logIn(requestData);
 	return false;
 }
 
@@ -28,7 +38,7 @@ function createNewAccountOnSubmit()
 			password : password
 		};
 		console.log("requestData: ", requestData);
-		// contactPHP(requestData, loadPage);
+		createNewAdmin(requestData);
 	}
 	else
 	{

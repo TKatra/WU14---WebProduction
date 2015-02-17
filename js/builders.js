@@ -2,7 +2,32 @@ function buildPage(pageData)
 {
 	console.log("Build Page, pageData: ", pageData)
 
-	buildLoginSection(pageData.loggedInAdmin);
+	// checkIfLoggedIn();
+	//
+
+	if(pageData.newPage == true)
+	{
+		if(pageData.UrlToLoad == null)
+		{
+			loadMainPage("home");
+		}
+		else
+		{
+			loadMainPage(pageData.UrlToLoad);
+		}
+		history.pushState(null,null,pageData.UrlToLoad);
+	}
+	else
+	{
+		if(pageData.UrlToLoad == null)
+		{
+			loadMainPage("home");
+		}
+		else
+		{
+			loadMainPage(pageData.UrlToLoad);
+		}
+	}
 }
 
 function buildHeaderMenu()
@@ -14,6 +39,7 @@ function buildLoginSection(loginData)
 {
 	console.log("buildLoginSection");
 	var loginSection = $("header nav .login-section");
+
 
 
 	if(loginData.firstName != null && loginData.lastName != null)
@@ -47,11 +73,11 @@ function loadMainPage(pageUrl)
 	$(".main-content article#"+pageUrl).fadeIn(500);
 }
 
-function newMainPage(pageUrl)
-{
-	loadMainPage(pageUrl);
-	history.pushState(null,null,pageUrl);
-}
+// function newMainPage(pageUrl)
+// {
+// 	loadMainPage(pageUrl);
+// 	history.pushState(null,null,pageUrl);
+// }
 
 
 function buildFooter()

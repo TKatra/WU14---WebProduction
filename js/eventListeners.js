@@ -1,6 +1,11 @@
 function onPop()
 {
-	loadMainPage(getCurrentPage());
+	var pageData = {
+		"UrlToLoad" : getCurrentPage(),
+		"newPage" : false
+	};
+	buildPage(pageData);
+	// loadMainPage();
 }
 
 function onWindowResize()

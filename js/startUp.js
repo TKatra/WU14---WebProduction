@@ -5,8 +5,9 @@ $(function ()
 
 function siteStartup()
 {
-	$( window ).resize(onWindowResize);
 	addEventListener("popstate", onPop);
+	$( window ).resize(onWindowResize);
+	$("#admin-add-page input[name=pageTitle]").keyup(pageTitleKeyUp);
 
 	$("#admin-add-page").submit(adminAddPageSubmit);
 	$("#log-in").submit(logInSubmit);
@@ -15,6 +16,7 @@ function siteStartup()
 	$(".admin-tools-menu ul").hide();
 	$(".main-content article").hide();
 	$("#admin-add-page input[type=checkbox]").attr("checked", false);
+
 
 	$(document).on("click", "a", linkOnClick);
 	$("header nav .hamburger-button").click(headerHamburgerOnClick);

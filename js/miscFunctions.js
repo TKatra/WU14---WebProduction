@@ -28,3 +28,8 @@ function resetSite()
 	$("#admin-add-page input[name=pageURL]").attr("disabled", true);
 	$("#admin-add-page .menu-settings").hide();
 }
+
+function toUrl()
+{
+	
+}

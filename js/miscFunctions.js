@@ -29,7 +29,16 @@ function resetSite()
 	$("#admin-add-page .menu-settings").hide();
 }
 
-function toUrl()
+function toUrl(text)
 {
-	
+	text = text.replace(/\W/g, " ");
+	text = text.trim();
+
+	text = text.replace(/ /g, "-");
+
+
+	text = text.replace(/-{2,}/g, "-");
+
+	return text.toLowerCase();
 }
+

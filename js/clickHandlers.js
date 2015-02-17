@@ -5,11 +5,19 @@ function linkOnClick(event)
 		return;
 	}
 
-	//if Log-out?
-
-	if ($(this).attr("href") != null && $(this).attr("href") !== "#")
+	if ($(this).attr("href") == "log-out")
 	{
-		newMainPage($(this).attr("href"));
+		console.log("logOut");
+
+	}
+	else if ($(this).attr("href") != null && $(this).attr("href") !== "#")
+	{
+		var pageData = {
+			"newPage" : true,
+			"UrlToLoad" : $(this).attr("href")
+		};
+		buildPage(pageData);
+		// newMainPage();
 	}
 
 	event.preventDefault();

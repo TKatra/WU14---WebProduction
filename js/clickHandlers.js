@@ -5,9 +5,11 @@ function linkOnClick(event)
 		return;
 	}
 
+	//if Log-out?
+
 	if ($(this).attr("href") != null && $(this).attr("href") !== "#")
 	{
-		newPage($(this).attr("href"));
+		newMainPage($(this).attr("href"));
 	}
 
 	event.preventDefault();

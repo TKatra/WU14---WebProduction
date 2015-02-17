@@ -20,7 +20,7 @@ function createNewAdmin(request)
 		data: request,
 		success:function(data)
 		{
-			newPage("log-in");
+			newMainPage("log-in");
 		},
 		error:function(data)
 		{
@@ -35,11 +35,7 @@ function logIn(request)
 		url:"php/main.php",
 		dataType: "json",
 		data: request,
-		success:function(data)
-		{
-			console.log("AJAX RETURN DATA: ", data);
-			// newPage("home");
-		},
+		success:buildPage,
 		error:function(data)
 		{
 			console.log("AJAX ERROR: ", data.responseText);

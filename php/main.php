@@ -3,7 +3,7 @@ include_once("../libs/nodebite-swiss-army-oop.php");
 
 session_start();
 
-$connectInfo =array(
+$connectInfo = array(
   "host" => "127.0.0.1",
   "dbname" => "WU14WebProduction",
   "username" => "root",
@@ -18,32 +18,55 @@ $result = array();
 if($request["commandLine"] == "createNewAccount")
 {
 	$prepareValues = array(
-		"firstName" => $request["firstName"],
-		"lastName" => $request["lastName"],
-		"email" => $request["email"],
-		"password" => sha1($request["password"])
+		"firstName" => $_REQUEST["firstName"],
+		"lastName" => $_REQUEST["lastName"],
+		"email" => $_REQUEST["email"],
+		"password" => sha1($_REQUEST["password"])
 		);
 
 	$PDOHelper->query(
-	"INSERT INTO Admins (firstName, lastName, email, `password`)
-	VALUES (:firstName, :lastName, :email, :password);",
+		"INSERT INTO Admins (firstName, lastName, email, `password`)
+		VALUES (:firstName, :lastName, :email, :password);",
 	$prepareValues
 	);
 
 	echo(json_encode($result));
 	exit();
 }
-else if($request["commandLine"] == "logIn")
+else if($_REQUEST["commandLine"] == "logIn")
 {
-	$email = $request["email"];
-	$password = sha1($request["password"]);
+	$prepareValues = array(
+		"email" => $_REQUEST["email"],
+		"password" => sha1($_REQUEST["password"])
+		);
 
-	//HILFE
+	$matchedAdmin = $PDOHelper->query(
+		"SELECT * 
+		FROM Admins
+		WHERE email = :email AND password = :password;",
+	$prepareValues
+	);
+
+	if(count($matchedAdmin) > 0)
+	{
+		$_SESSION["loggedInAdmin"] = array(
+			"email" => $matchedAdmin[0]["email"]
+			);
+
+		$result["loggedInAdmin"] = array(
+			"firstName"=>$matchedAdmin[0]["firstName"],
+			"lastName"=>$matchedAdmin[0]["lastName"]//,
+			// "email" => $matchedAdmin[0]["email"]
+			);
+	}
+
+	// var_dump($matchedAdmin);
+	// die();
 
 	echo(json_encode($result));
 	exit();
 }
-else if($request["commandLine"] == "logOut")
+else if($_REQUEST["commandLine"] == "logOut")
 {
 	echo(json_encode($result));
 	exit();

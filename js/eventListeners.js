@@ -1,6 +1,6 @@
 function onPop()
 {
-	loadPage(getCurrentPage());
+	loadMainPage(getCurrentPage());
 }
 
 function onWindowResize()

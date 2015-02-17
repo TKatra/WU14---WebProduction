@@ -25,6 +25,6 @@ function siteStartup()
 	setMainContentMargin();
 	// buildDebugWindow();
 
-	loadPage(getCurrentPage());
+	loadMainPage(getCurrentPage());
 }
 

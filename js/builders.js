@@ -1,4 +1,37 @@
-function loadPage(pageUrl)
+function buildPage(pageData)
+{
+	console.log("Build Page, pageData: ", pageData)
+
+	buildLoginSection(pageData.loggedInAdmin);
+}
+
+function buildHeaderMenu()
+{
+	
+}
+
+function buildLoginSection(loginData)
+{
+	console.log("buildLoginSection");
+	var loginSection = $("header nav .login-section");
+
+
+	if(loginData.firstName != null && loginData.lastName != null)
+	{
+		console.log("loginData length more than 0");
+		loginSection.find("p").text(loginData.firstName + " " + loginData.lastName);
+		loginSection.find("a").text("Log out").attr("href","log-out");
+	}
+	else
+	{
+		console.log("loginData length not more than 0");
+		loginSection.find("p").text("");
+		loginSection.find("a").text("Log in").attr("href", "log-in");
+	}
+}
+
+
+function loadMainPage(pageUrl)
 {
 	console.log("pageUrl: ", pageUrl);
 
@@ -14,12 +47,17 @@ function loadPage(pageUrl)
 	$(".main-content article#"+pageUrl).fadeIn(500);
 }
 
-function newPage(pageUrl)
+function newMainPage(pageUrl)
 {
-	loadPage(pageUrl);
+	loadMainPage(pageUrl);
 	history.pushState(null,null,pageUrl);
 }
 
+
+function buildFooter()
+{
+
+}
 
 
 /////////////////////////////////////////////////////////

@@ -30,8 +30,15 @@ if($request["commandLine"] == "createNewAccount")
 	$prepareValues
 	);
 
+	$result["UrlToLoad"] = "log-in";
+	$result["newPage"] = true;
+
 	echo(json_encode($result));
 	exit();
+}
+else if($_REQUEST["commandLine"] == "checkIfLoggedIn")
+{
+
 }
 else if($_REQUEST["commandLine"] == "logIn")
 {
@@ -50,14 +57,16 @@ else if($_REQUEST["commandLine"] == "logIn")
 	if(count($matchedAdmin) > 0)
 	{
 		$_SESSION["loggedInAdmin"] = array(
+			"firstName"=>$matchedAdmin[0]["firstName"],
+			"lastName"=>$matchedAdmin[0]["lastName"],
 			"email" => $matchedAdmin[0]["email"]
 			);
 
-		$result["loggedInAdmin"] = array(
-			"firstName"=>$matchedAdmin[0]["firstName"],
-			"lastName"=>$matchedAdmin[0]["lastName"]//,
-			// "email" => $matchedAdmin[0]["email"]
-			);
+		// $result["loggedInAdmin"] = array(
+		// 	"firstName"=>$matchedAdmin[0]["firstName"],
+		// 	"lastName"=>$matchedAdmin[0]["lastName"]//,
+		// 	// "email" => $matchedAdmin[0]["email"]
+		// 	);
 	}
 
 	// var_dump($matchedAdmin);

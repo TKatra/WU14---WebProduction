@@ -18,10 +18,23 @@ function createNewAdmin(request)
 		url:"php/main.php",
 		dataType: "json",
 		data: request,
-		success:function(data)
+		success:buildPage,
+		error:function(data)
 		{
-			newMainPage("log-in");
+			console.log("AJAX ERROR: ", data.responseText);
+		}
+	});
+}
+
+function checkIfLoggedIn()
+{
+	$.ajax({
+		url:"php/main.php",
+		dataType: "json",
+		data: {
+			"commandLine" : "checkIfLoggedIn"
 		},
+		success:buildLoginSection,
 		error:function(data)
 		{
 			console.log("AJAX ERROR: ", data.responseText);
@@ -42,3 +55,4 @@ function logIn(request)
 		}
 	});
 }
+

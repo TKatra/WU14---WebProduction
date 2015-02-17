@@ -5,8 +5,8 @@ function adminAddPageSubmit()
 
 function logInSubmit()
 {
-	var email = $(this).find("input[name=email]");
-	var password = $(this).find("input[name=password]");
+	var email = $(this).find("input[name=email]").val();
+	var password = $(this).find("input[name=password]").val();
 
 	var requestData = {
 		commandLine : "logIn",

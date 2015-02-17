@@ -25,6 +25,11 @@ function siteStartup()
 	setMainContentMargin();
 	// buildDebugWindow();
 
-	loadMainPage(getCurrentPage());
+	// loadMainPage(getCurrentPage());
+	var pageData = {
+		"UrlToLoad" : getCurrentPage(),
+		"newPage" : false
+	};
+	buildPage(pageData);
 }
 

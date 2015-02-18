@@ -41,10 +41,7 @@ function toUrl(text)
 	text = text.trim();
 
 	text = text.replace(/ /g, "-");
-
-
 	text = text.replace(/-{2,}/g, "-");
 
 	return text.toLowerCase();
 }
-

@@ -3,6 +3,7 @@ function adminAddPageSubmit()
 	var requestData = {
 		"pageTitle" : $(this).find("input[name=pageTitle]").val(),
 		"pageURL" : $(this).find("input[name=pageURL]").val(),
+		"pageImage" : $(this).find("input[name=pageImage]").val(),
 		"pageBody" : $(this).find("textarea[name=pageBody]").val()
 	};
 
@@ -28,7 +29,7 @@ function logInSubmit()
 		commandLine : "logIn",
 		email : email,
 		password : password
-	}
+	};
 
 	logIn(requestData);
 	return false;

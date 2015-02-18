@@ -29,6 +29,7 @@ function resetSite()
 
 	$("#admin-add-page input[type=checkbox]").attr("checked", false);
 	$("#admin-add-page input[name=pageURL]").attr("disabled", true);
+	$("#admin-add-page input[name=linkTitle]").attr("disabled", true);
 	$("#admin-add-page .menu-settings").hide();
 
 	$("menu-settings input").prop('required',false);

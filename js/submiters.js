@@ -1,5 +1,21 @@
 function adminAddPageSubmit()
 {
+	var requestData = {
+		"pageTitle" : $(this).find("input[name=pageTitle]").val(),
+		"pageURL" : $(this).find("input[name=pageURL]").val(),
+		"pageBody" : $(this).find("textarea[name=pageBody]").val()
+	};
+
+
+	if ($(this).find("input[name=addToMenu]:checked").length > 0)
+	{
+		console.log("Add to menu!");
+		// console.log("Checkbox: ", $(this).find("input[name=addToMenu]:checked"));
+		requestData.linkTitle = $(this).find("input[name=linkTitle]").val();
+		requestData.linkWeight = $(this).find("input[name=linkWeight]").val();
+		requestData.linkParentID = $(this).find("select").val();
+	}
+	console.log("requestData: ", requestData);
 	return false;
 }
 

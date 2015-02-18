@@ -155,6 +155,9 @@ header nav .menu-right .hamburger-button:hover {
   background: linear-gradient(#ffff59, #ff9908);
   /* Standard syntax (must be last) */
 }
+header nav .menu-right .hamburger-button.active {
+  background-color: #ffcb2f;
+}
 header nav .menu-right .login-section {
   display: inline-block;
   float: right;

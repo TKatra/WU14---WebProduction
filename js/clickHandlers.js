@@ -26,6 +26,7 @@ function linkOnClick(event)
 function headerHamburgerOnClick()
 {
 	$("header nav > ul").toggleClass("display-header-menu");
+	$("header nav .hamburger-button").toggleClass("active");
 }
 
 function adminMenuButtonOnClick()

@@ -32,6 +32,7 @@ a:active {
   height: 100vh;
   width: 100vw;
   background-color: #444488;
+  background-image: url("../img/background(large).jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -369,7 +370,7 @@ main .main-section .main-content .big-input {
   width: 100%;
 }
 main .main-section .main-content textarea.big-input {
-  height: 150px;
+  height: 100px;
   resize: none;
 }
 main .main-section .main-content .button {
@@ -448,6 +449,7 @@ footer .footer-content .address-area a:hover {
 @media (max-width: 767px) {
   .image-background {
     background-color: #FFFFFF;
+    background-image: none;
   }
   .gradient-overlay {
     display: none;
@@ -498,6 +500,7 @@ footer .footer-content .address-area a:hover {
 @media (min-width: 768px) {
   .image-background {
     background-color: #FFFFFF;
+    background-image: none;
   }
   .gradient-overlay {
     display: none;
@@ -578,6 +581,7 @@ footer .footer-content .address-area a:hover {
 @media (min-width: 992px) {
   .image-background {
     background-color: #444488;
+    background-image: url("../img/background(medium).jpg");
   }
   .gradient-overlay {
     display: block;
@@ -622,6 +626,7 @@ footer .footer-content .address-area a:hover {
 @media (min-width: 1200px) {
   .image-background {
     background-color: #444488;
+    background-image: url("../img/background(large).jpg");
   }
   .gradient-overlay {
     display: block;

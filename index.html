@@ -203,10 +203,13 @@
 									</label>
 									<section class="menu-settings">
 										<h3>Link title</h3>
-										<input class="big-input" type="text" name="linkTitle" placeholder="Input link title">
+										<label class="checkbox-pointer">
+											<input class="checkbox-pointer checkbox-disable" type="checkbox" name="manuallyEditLinkTitle" value="linkTitle"> Manually edit link title
+										</label>
+										<input class="big-input" type="text" name="linkTitle" placeholder="Input link title" disabled>
 
 										<h3>Weight</h3>
-										<input class="big-input" type="number" name="pageTitle" value="0" min="0">
+										<input class="big-input" type="number" name="linkWeight" value="0" min="0">
 
 										<h3>Parent menu link</h3>
 										<select class="big-input">
@@ -215,16 +218,12 @@
 									</section>
 								</section>
 							</section>
-							
-
-							
 
 							<section class="button-section">
 								<button class="button" type="submit">
 								Add new page
 								</button>
 							</section>
-							
 						</form>
 					</article>
 

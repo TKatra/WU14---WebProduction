@@ -21,7 +21,6 @@ function resetSite()
 	$("header nav > ul").removeClass("display-header-menu");
 	$("a").removeClass("active");
 
-
 	$("input[type=text]").val("");
 	$("input[type=email]").val("");
 	$("input[type=password]").val("");
@@ -31,6 +30,8 @@ function resetSite()
 	$("#admin-add-page input[type=checkbox]").attr("checked", false);
 	$("#admin-add-page input[name=pageURL]").attr("disabled", true);
 	$("#admin-add-page .menu-settings").hide();
+
+	$("menu-settings input").prop('required',false);
 }
 
 function toUrl(text)

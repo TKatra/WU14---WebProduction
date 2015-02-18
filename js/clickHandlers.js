@@ -55,6 +55,22 @@ function checkboxDisplaySectionOnClick()
 	}
 }
 
+function checkboxAddToMenuOnClick()
+{
+	var checkbox = $(this);
+	var section = $(this).parents("form").find("." + checkbox.val());
+	console.log(section);
+
+	if(checkbox.is(":checked") === true)
+	{
+		section.find("input").prop('required',true);
+	}
+	else
+	{
+		section.find("input").prop('required',false);
+	}
+}
+
 function checkboxDisableOnClick()
 {
 	var checkbox = $(this);

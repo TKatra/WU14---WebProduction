@@ -23,6 +23,7 @@ function siteStartup()
 	$(".admin-tools-menu .button").click(adminMenuButtonOnClick);
 	$(".checkbox-disable").click(checkboxDisableOnClick);
 	$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
+	$(".checkbox-display-section[name=addToMenu]").click(checkboxAddToMenuOnClick);
 	
 	setMainContentMargin();
 	// buildDebugWindow();

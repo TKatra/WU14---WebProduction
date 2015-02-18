@@ -118,6 +118,9 @@ header nav .home-link:hover {
   background: linear-gradient(#ffff59, #ff9908);
   /* Standard syntax (must be last) */
 }
+header nav .home-link.active {
+  background-color: #ff9908;
+}
 header nav .menu-right {
   display: inline-block;
   float: right;
@@ -156,7 +159,8 @@ header nav .menu-right .hamburger-button:hover {
   /* Standard syntax (must be last) */
 }
 header nav .menu-right .hamburger-button.active {
-  background-color: #ffcb2f;
+  background: none;
+  background-color: #ff9908;
 }
 header nav .menu-right .login-section {
   display: inline-block;
@@ -208,6 +212,10 @@ header nav ul li a:hover {
   background: linear-gradient(#ffff59, #ff9908);
   /* Standard syntax (must be last) */
 }
+header nav ul li a.active {
+  background: none;
+  background-color: #ff9908;
+}
 header nav ul ul {
   position: absolute;
   left: -3px;
@@ -243,6 +251,10 @@ header nav ul ul li a {
 }
 header nav ul ul li a:first-child {
   border-top: 1px solid #000000;
+}
+header nav ul ul li a.active {
+  background: none;
+  background-color: #ff9908;
 }
 header nav ul ul li ul {
   position: absolute;
@@ -284,10 +296,13 @@ header nav ul ul li ul {
   margin: 0;
   border-bottom: 1px solid #000000;
 }
-.admin-tools-menu ul li:hover {
+.admin-tools-menu ul li a:hover {
   background-color: #fff5ce;
 }
-.admin-tools-menu ul li:active {
+.admin-tools-menu ul li a:active {
+  background-color: #ffe992;
+}
+.admin-tools-menu ul li a.active {
   background-color: #ffe992;
 }
 .admin-tools-menu .button {

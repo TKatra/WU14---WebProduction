@@ -68,7 +68,7 @@ function loadMainPage(pageUrl)
 		pageUrl = "home";
 		console.log("pageUrl: ", pageUrl);
 	}
-	resetSite();
+	
 	console.log("pageUrl search for article: ", pageUrl);
 	$(".main-content article#"+pageUrl).fadeIn(500);
 }

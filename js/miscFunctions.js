@@ -17,6 +17,10 @@ function resetSite()
 
 	$(".admin-tools-menu ul").slideUp(150);
 	$(".main-content article").hide();
+	$(".hamburger-button").removeClass("active");
+	$("header nav > ul").removeClass("display-header-menu");
+	$("a").removeClass("active");
+
 
 	$("input[type=text]").val("");
 	$("input[type=email]").val("");

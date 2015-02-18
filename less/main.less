@@ -125,6 +125,9 @@ header{
 				background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */
 				background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
 			}
+			&.active{
+				background-color: #ff9908;
+			}
 		}
 		.menu-right{
 			display: inline-block;
@@ -151,7 +154,8 @@ header{
 				}
 
 				&.active{
-					background-color: #ffcb2f;
+					background: none;
+					background-color: #ff9908;
 				}
 			}
 			.login-section{
@@ -223,6 +227,10 @@ header{
 						background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */
 						background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
 					}
+					&.active{
+						background: none;
+						background-color: #ff9908;
+					}
 				}
 
 				
@@ -264,6 +272,12 @@ header{
 
 						&:first-child{
 							border-top: 1px solid #000000;
+						}
+						&.active{
+							background: none;
+							background-color: #ff9908;
+
+
 						}
 					}
 
@@ -314,17 +328,22 @@ header{
 				margin: 0;
 				// background-color: #AAAAAA;
 				border-bottom: 1px solid #000000;
+				&:hover{
+					background-color: #fff5ce;
+					//ffeec5
+					//ddfdff
+				}
+				&:active{
+					background-color: #ffe992;
+					//ffeec5
+					//
+				}
+				&.active{
+					background-color: #ffe992;
+				}
 			}
-			&:hover{
-				background-color: #fff5ce;
-				//ffeec5
-				//ddfdff
-			}
-			&:active{
-				background-color: #ffe992;
-				//ffeec5
-				//
-			}
+			
+
 		}
 	}
 	.button{
@@ -537,8 +556,6 @@ footer{
 				}
 			}
 		}
-		
-		
 	}
 
 	main{

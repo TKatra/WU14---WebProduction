@@ -43,7 +43,7 @@ function checkboxDisplaySectionOnClick()
 {
 	var checkbox = $(this);
 	var section = $(this).parents("form").find("." + checkbox.val());
-	console.log(section);
+	// console.log(section);
 
 	if(checkbox.is(":checked") === true)
 	{
@@ -59,11 +59,12 @@ function checkboxAddToMenuOnClick()
 {
 	var checkbox = $(this);
 	var section = $(this).parents("form").find("." + checkbox.val());
-	console.log(section);
+	// console.log(section);
 
 	if(checkbox.is(":checked") === true)
 	{
-		section.find("input").prop('required',true);
+		section.find("input[type=text]").prop('required',true);
+		section.find("input[type=number]").prop('required',true);
 	}
 	else
 	{

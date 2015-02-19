@@ -25,7 +25,7 @@ function siteStartup()
 	$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 	$(".checkbox-display-section[name=addToMenu]").click(checkboxAddToMenuOnClick);
 	
-	setMainContentMargin();
+	
 	// buildDebugWindow();
 
 	// loadMainPage(getCurrentPage());

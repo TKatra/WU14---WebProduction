@@ -1,15 +1,22 @@
 function buildPage(pageData)
 {
 	console.log("Build Page, pageData: ", pageData)
-
+	resetSite();
 	// checkIfLoggedIn();
 	//
 
-	if(pageData.newPage == true)
+	var requestData = {
+		"commandLine" : "buildImageSelectElement"
+	};
+
+	contactPHP(requestData, buildImageSelectElement);
+
+	if(pageData.newPage === true)
 	{
-		if(pageData.UrlToLoad == null)
+		if(!pageData.UrlToLoad)
 		{
-			loadMainPage("home");
+			pageData.UrlToLoad = "home";
+			loadMainPage(pageData.UrlToLoad);
 		}
 		else
 		{
@@ -19,15 +26,17 @@ function buildPage(pageData)
 	}
 	else
 	{
-		if(pageData.UrlToLoad == null)
+		if(!pageData.UrlToLoad)
 		{
-			loadMainPage("home");
+			pageData.UrlToLoad = "home";
+			loadMainPage(pageData.UrlToLoad);
 		}
 		else
 		{
 			loadMainPage(pageData.UrlToLoad);
 		}
 	}
+	$("a[href=" + pageData.UrlToLoad + "]").addClass("active");
 }
 
 function buildHeaderMenu()
@@ -83,6 +92,16 @@ function loadMainPage(pageUrl)
 function buildFooter()
 {
 
+}
+
+function buildImageSelectElement(imageData)
+{
+	var selectElement = $("#admin-add-page select[name=pageImage]");
+
+	for (var i = 0; i < imageData.length; i++)
+	{
+		selectElement.append($("<option>").val(imageData[i].ID).text(imageData[i].title));
+	}
 }
 
 

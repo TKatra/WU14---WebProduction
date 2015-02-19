@@ -29,8 +29,8 @@
 					<img class="logo-small" src="img/TheGameBoxLogo_box_small.png">
 				</a>
 				<section class="menu-right">
-					<div class="hamburger-button glyphicon glyphicon-menu-hamburger">
-
+					<div class="hamburger-button">
+						<span class="glyphicon glyphicon-menu-hamburger"></span>
 					</div>
 					<section class="login-section">
 						<p></p>
@@ -193,7 +193,9 @@
 									<input class="big-input" type="text" name="pageURL" placeholder="Input page URL" disabled required>
 
 									<h3>Page image</h3>
-									<input class="big-input" type="file" name="pageImage" accept="image/*" required>
+									<select class="mig-input" name="pageImage">
+									</select>
+									<!-- <input class="big-input" type="file" name="pageImage" accept="image/*" required> -->
 
 									<h3>Page body</h3>
 									<textarea class="big-input" name="pageBody" placeholder="Input page body text" required></textarea>
@@ -215,7 +217,7 @@
 										<input class="big-input" type="number" name="linkWeight" value="0" min="0">
 
 										<h3>Parent menu link</h3>
-										<select class="big-input">
+										<select class="big-input" name="linkParentID">
 											<option value="">Top</option>
 										</select>
 									</section>

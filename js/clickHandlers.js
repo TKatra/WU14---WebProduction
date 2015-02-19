@@ -1,6 +1,6 @@
 function linkOnClick(event)
 {
-	if ($(this).attr("href").indexOf("://") >= 0)
+	if ($(this).attr("href").indexOf("://") >= 0 || $(this).attr("href").indexOf("mailto:") >= 0)
 	{
 		return;
 	}

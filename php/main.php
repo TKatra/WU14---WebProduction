@@ -80,4 +80,22 @@ else if($_REQUEST["commandLine"] == "logOut")
 	echo(json_encode($result));
 	exit();
 }
+else if($_REQUEST["commandLine"] == "buildImageSelectElement")
+{
+	$result = $PDOHelper->query(
+		"SELECT *
+		FROM Images"
+		);
+	// var_dump($foundImages);
+	// die();
+	echo(json_encode($result));
+	exit();
+}
+else if($_REQUEST["commandLine"] == "addNewPage")
+{
+	
+
+	echo(json_encode($result));
+	exit();
+}
 ?>

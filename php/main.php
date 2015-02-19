@@ -93,7 +93,64 @@ else if($_REQUEST["commandLine"] == "buildImageSelectElement")
 }
 else if($_REQUEST["commandLine"] == "addNewPage")
 {
-	
+	// var_dump($_REQUEST);
+	// die();
+	$prepareValues = array(
+		"pageTitle"=>$_REQUEST["pageTitle"],
+		"pageURL"=>$_REQUEST["pageURL"],
+		"pageImage"=>(int)$_REQUEST["pageImage"],
+		"pageBody"=>$_REQUEST["pageBody"],
+		);
+	// var_dump($prepareValues);
+	// die();
+
+	// $PDOHelper->query(
+	// 	"INSERT INTO Pages()
+	// 	",
+	// 	$prepareValues);
+
+	if($_REQUEST["addToMenu"] == "true")
+	{
+		// echo "TRUE!";
+		// die();
+		$prepareValues["linkTitle"] = $_REQUEST["linkTitle"];
+		$prepareValues["linkWeight"] = $_REQUEST["linkWeight"];
+
+		if(trim($_REQUEST["linkParentID"]) === "")
+		{
+			$prepareValues["linkParentID"] = null;
+		}
+		else
+		{
+			$prepareValues["linkParentID"] = (int)$_REQUEST["linkParentID"];
+		}
+
+
+	}
+	else if($_REQUEST["addToMenu"] == "false")
+	{
+		// echo "FALSE!";
+		// die();
+
+
+	}
+	else
+	{
+		echo "ERROR, FALSE DATA! KILL CONNECTION.";
+		var_dump($_REQUEST);
+		die();
+	}
+
+
+	echo(json_encode($result));
+	exit();
+}
+else if($_REQUEST["commandLine"] = "getAllAdmins")
+{
+	$result = $PDOHelper->query(
+		"SELECT *
+		FROM Admins"
+		);
 
 	echo(json_encode($result));
 	exit();

@@ -1,10 +1,12 @@
 function adminAddPageSubmit()
 {
 	var requestData = {
+		"commandLine" : "addNewPage",
 		"pageTitle" : $(this).find("input[name=pageTitle]").val(),
 		"pageURL" : $(this).find("input[name=pageURL]").val(),
-		"pageImage" : $(this).find("input[name=pageImage]").val(),
-		"pageBody" : $(this).find("textarea[name=pageBody]").val()
+		"pageImage" : $(this).find("select[name=pageImage]").val(),
+		"pageBody" : $(this).find("textarea[name=pageBody]").val(),
+		"addToMenu" : false
 	};
 
 
@@ -12,11 +14,24 @@ function adminAddPageSubmit()
 	{
 		console.log("Add to menu!");
 		// console.log("Checkbox: ", $(this).find("input[name=addToMenu]:checked"));
+		requestData.addToMenu = true;
 		requestData.linkTitle = $(this).find("input[name=linkTitle]").val();
 		requestData.linkWeight = $(this).find("input[name=linkWeight]").val();
-		requestData.linkParentID = $(this).find("select").val();
+
+		if ($(this).find("select[name=linkParentID]").val() !== "")
+		{
+			requestData.linkParentID = $(this).find("select[name=linkParentID]").val();
+		}
+		else
+		{
+			requestData.linkParentID = null;
+		}
+		
 	}
 	console.log("requestData: ", requestData);
+
+	// contactPHP(requestData, );
+
 	return false;
 }
 

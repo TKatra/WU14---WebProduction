@@ -157,6 +157,13 @@ header{
 				&.active{
 					background: none;
 					background-color: #ff9908;
+					&:hover{
+						background-color: none;
+						background: -webkit-linear-gradient(#ffff59, #ff9908); /* For Safari 5.1 to 6.0 */
+						background: -o-linear-gradient(#ffff59, #ff9908); /* For Opera 11.1 to 12.0 */
+						background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */
+						background: linear-gradient(#ffff59, #ff9908); /* Standard syntax (must be last) */
+					}
 				}
 			}
 			.login-section{

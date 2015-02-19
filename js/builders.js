@@ -36,6 +36,13 @@ function buildPage(pageData)
 			loadMainPage(pageData.UrlToLoad);
 		}
 	}
+
+	requestData = {
+		commandLine : "getAllAdmins"
+	};
+
+	contactPHP(requestData, buildFooter);
+
 	$("a[href=" + pageData.UrlToLoad + "]").addClass("active");
 }
 
@@ -89,15 +96,21 @@ function loadMainPage(pageUrl)
 // }
 
 
-function buildFooter()
+function buildFooter(footerData)
 {
-
+	// console.log("footerData: ", footerData);
+	$(".address-area").empty();
+	for(var i = 0; i < footerData.length; i++)
+	{
+		$(".address-area").append($("<a>").attr("href", "mailto:" + footerData[i].email).text(footerData[i].firstName + " " + footerData[i].lastName));
+	}
+	setMainContentMargin();
 }
 
 function buildImageSelectElement(imageData)
 {
 	var selectElement = $("#admin-add-page select[name=pageImage]");
-
+	selectElement.empty();
 	for (var i = 0; i < imageData.length; i++)
 	{
 		selectElement.append($("<option>").val(imageData[i].ID).text(imageData[i].title));

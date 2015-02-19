@@ -1,6 +1,5 @@
 function linkOnClick(event)
 {
-	resetSite();
 	if ($(this).attr("href").indexOf("://") >= 0)
 	{
 		return;

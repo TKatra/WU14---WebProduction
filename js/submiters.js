@@ -17,20 +17,20 @@ function adminAddPageSubmit()
 		requestData.addToMenu = true;
 		requestData.linkTitle = $(this).find("input[name=linkTitle]").val();
 		requestData.linkWeight = $(this).find("input[name=linkWeight]").val();
-
-		if ($(this).find("select[name=linkParentID]").val() !== "")
-		{
-			requestData.linkParentID = $(this).find("select[name=linkParentID]").val();
-		}
-		else
-		{
-			requestData.linkParentID = null;
-		}
+		requestData.linkParentID = $(this).find("select[name=linkParentID]").val();
+		// if ($(this).find("select[name=linkParentID]").val() !== "")
+		// {
+		// 	requestData.linkParentID = $(this).find("select[name=linkParentID]").val();
+		// }
+		// else
+		// {
+		// 	requestData.linkParentID = null;
+		// }
 		
 	}
 	console.log("requestData: ", requestData);
 
-	// contactPHP(requestData, );
+	contactPHP(requestData, buildPage);
 
 	return false;
 }

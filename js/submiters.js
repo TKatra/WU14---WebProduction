@@ -5,28 +5,18 @@ function adminAddPageSubmit()
 		"pageTitle" : $(this).find("input[name=pageTitle]").val(),
 		"pageURL" : $(this).find("input[name=pageURL]").val(),
 		"pageImage" : $(this).find("select[name=pageImage]").val(),
-		"pageBody" : $(this).find("textarea[name=pageBody]").val(),
-		"addToMenu" : false
+		"pageBody" : $(this).find("textarea[name=pageBody]").val()
 	};
-
 
 	if ($(this).find("input[name=addToMenu]:checked").length > 0)
 	{
 		console.log("Add to menu!");
-		// console.log("Checkbox: ", $(this).find("input[name=addToMenu]:checked"));
-		requestData.addToMenu = true;
-		requestData.linkTitle = $(this).find("input[name=linkTitle]").val();
-		requestData.linkWeight = $(this).find("input[name=linkWeight]").val();
-		requestData.linkParentID = $(this).find("select[name=linkParentID]").val();
-		// if ($(this).find("select[name=linkParentID]").val() !== "")
-		// {
-		// 	requestData.linkParentID = $(this).find("select[name=linkParentID]").val();
-		// }
-		// else
-		// {
-		// 	requestData.linkParentID = null;
-		// }
-		
+
+		requestData.menuData = {
+			"linkTitle" : $(this).find("input[name=linkTitle]").val(),
+			"linkWeight" : $(this).find("input[name=linkWeight]").val(),
+			"linkParentID" : $(this).find("select[name=linkParentID]").val()
+		};
 	}
 	console.log("requestData: ", requestData);
 

@@ -1,6 +1,6 @@
 function buildPage(pageData)
 {
-	console.log("Build Page, pageData: ", pageData)
+	console.log("Build Page, pageData: ", pageData);
 	resetSite();
 	// checkIfLoggedIn();
 	//
@@ -11,31 +11,12 @@ function buildPage(pageData)
 
 	contactPHP(requestData, buildImageSelectElement);
 
-	if(pageData.newPage === true)
+	if(!pageData.UrlToLoad)
 	{
-		if(!pageData.UrlToLoad)
-		{
-			pageData.UrlToLoad = "home";
-			loadMainPage(pageData.UrlToLoad);
-		}
-		else
-		{
-			loadMainPage(pageData.UrlToLoad);
-		}
-		history.pushState(null,null,pageData.UrlToLoad);
+		pageData.UrlToLoad = "home";
 	}
-	else
-	{
-		if(!pageData.UrlToLoad)
-		{
-			pageData.UrlToLoad = "home";
-			loadMainPage(pageData.UrlToLoad);
-		}
-		else
-		{
-			loadMainPage(pageData.UrlToLoad);
-		}
-	}
+
+	loadMainPage(pageData.UrlToLoad, pageData.newPage);
 
 	requestData = {
 		commandLine : "getAllAdmins"
@@ -56,8 +37,6 @@ function buildLoginSection(loginData)
 	console.log("buildLoginSection");
 	var loginSection = $("header nav .login-section");
 
-
-
 	if(loginData.firstName != null && loginData.lastName != null)
 	{
 		console.log("loginData length more than 0");
@@ -73,20 +52,36 @@ function buildLoginSection(loginData)
 }
 
 
-function loadMainPage(pageUrl)
+function loadMainPage(pageUrl, newPage)
 {
 	console.log("pageUrl: ", pageUrl);
-
-	$(".main-content article").hide();
-	if (!pageUrl)
-	{
-		console.log("pageUrl is undefined, setting it to 'home'");
-		pageUrl = "home";
-		console.log("pageUrl: ", pageUrl);
-	}
-	
 	console.log("pageUrl search for article: ", pageUrl);
-	$(".main-content article#"+pageUrl).fadeIn(500);
+
+
+	if($(".main-content article#"+pageUrl).length > 0)
+	{
+		$(".main-content article#"+pageUrl).fadeIn(500);
+
+		if(newPage === true)
+		{
+			history.pushState(null,null,pageUrl);
+		}
+	}
+	else
+	{
+		var requestData = {
+			"commandLine" : "loadPage",
+			"pageURL" : pageUrl
+		};
+		contactPHP(requestData, loadPageFromDB);
+	}
+
+	
+}
+
+function loadPageFromDB(pageData)
+{
+	
 }
 
 // function newMainPage(pageUrl)

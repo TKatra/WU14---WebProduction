@@ -97,50 +97,70 @@ else if($_REQUEST["commandLine"] == "addNewPage")
 	// die();
 	$prepareValues = array(
 		"pageTitle"=>$_REQUEST["pageTitle"],
-		"pageURL"=>$_REQUEST["pageURL"],
-		"pageImage"=>(int)$_REQUEST["pageImage"],
 		"pageBody"=>$_REQUEST["pageBody"],
+		"pageImage"=>(int)$_REQUEST["pageImage"]
 		);
 	// var_dump($prepareValues);
 	// die();
 
-	// $PDOHelper->query(
-	// 	"INSERT INTO Pages()
-	// 	",
-	// 	$prepareValues);
+	$PDOHelper->query(
+		"INSERT INTO Pages(title, body, adminID, imageID)
+		VALUES(:pageTitle, :pageBody, 1, :pageImage);",
+		$prepareValues);
 
-	if($_REQUEST["addToMenu"] == "true")
+	unset($prepareValues);
+
+	$lastUploadedPage = $PDOHelper->query(
+		"SELECT ID
+		FROM Pages
+		ORDER BY uploaded DESC LIMIT 1"
+		);
+
+	// $prepareValues["pageID"] = $lastUploadedPage[0]["ID"];
+
+	$prepareValues = array(
+		"pageURL"=>$_REQUEST["pageURL"],
+		"pageID"=>$lastUploadedPage[0]["ID"]
+	);
+
+	$PDOHelper->query(
+		"INSERT INTO UrlAlias(`path`, pageID)
+		VALUES(:pageURL, :pageID);",
+		$prepareValues);
+
+	if(isset($_REQUEST["menuData"]))
 	{
-		// echo "TRUE!";
-		// die();
-		$prepareValues["linkTitle"] = $_REQUEST["linkTitle"];
-		$prepareValues["linkWeight"] = $_REQUEST["linkWeight"];
+		$menuData = $_REQUEST["menuData"];
+		$menuData["linkURL"] = $_REQUEST["pageURL"];
 
-		if(trim($_REQUEST["linkParentID"]) === "")
+		if(trim($menuData["linkParentID"]) === "")
 		{
-			$prepareValues["linkParentID"] = null;
+			$menuData["linkParentID"] = null;
 		}
 		else
 		{
-			$prepareValues["linkParentID"] = (int)$_REQUEST["linkParentID"];
+			$menuData["linkParentID"] = (int)$menuData["linkParentID"];
 		}
 
-
-	}
-	else if($_REQUEST["addToMenu"] == "false")
-	{
-		// echo "FALSE!";
+		$PDOHelper->query(
+			"INSERT INTO MenuLink(title, `path`, weight, menuID, parentID)
+			VALUES(:linkTitle, :linkURL, :linkWeight, 'main-menu', :linkParentID);",
+			$menuData);
+		// var_dump($menuData);
 		// die();
-
-
-	}
-	else
-	{
-		echo "ERROR, FALSE DATA! KILL CONNECTION.";
-		var_dump($_REQUEST);
-		die();
 	}
 
+	$result["UrlToLoad"] = $_REQUEST["pageURL"];
+	$result["newPage"] = true;
+
+	echo(json_encode($result));
+	exit();
+}
+else if($_REQUEST["commandLine"] == "loadPage")
+{
+	$pageURL = $_REQUEST["pageURL"];
+
+	
 
 	echo(json_encode($result));
 	exit();

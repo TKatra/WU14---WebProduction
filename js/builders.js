@@ -6,9 +6,13 @@ function buildPage(pageData)
 	//
 
 	var requestData = {
+		"commandLine" : "getMainMenuLinks"
+	};
+	contactPHP(requestData, buildHeaderMenu);
+
+	requestData = {
 		"commandLine" : "buildImageSelectElement"
 	};
-
 	contactPHP(requestData, buildImageSelectElement);
 
 	if(!pageData.UrlToLoad)
@@ -23,13 +27,18 @@ function buildPage(pageData)
 	};
 
 	contactPHP(requestData, buildFooter);
-
-	$("a[href=" + pageData.UrlToLoad + "]").addClass("active");
 }
 
-function buildHeaderMenu()
+function buildHeaderMenu(MenuData)
 {
-	
+	console.log("MenuData: ", MenuData);
+
+	var mainMenu = $(".main-menu");
+
+	for(var i = 0; i < MenuData.length; i++)
+	{
+
+	}
 }
 
 function buildLoginSection(loginData)
@@ -58,30 +67,58 @@ function loadMainPage(pageUrl, newPage)
 	console.log("pageUrl search for article: ", pageUrl);
 
 
-	if($(".main-content article#"+pageUrl).length > 0)
+	if($("article#"+pageUrl).length > 0)
 	{
-		$(".main-content article#"+pageUrl).fadeIn(500);
+		$("article#"+pageUrl).fadeIn(500);
 
 		if(newPage === true)
 		{
 			history.pushState(null,null,pageUrl);
 		}
+		$("a[href=" + pageUrl + "]").addClass("active");
 	}
 	else
 	{
+		console.log("Load from DB");
 		var requestData = {
 			"commandLine" : "loadPage",
-			"pageURL" : pageUrl
+			"pageURL" : pageUrl,
+			"newPage" : newPage
 		};
+		console.log("requestData: ", requestData);
 		contactPHP(requestData, loadPageFromDB);
 	}
-
-	
 }
 
 function loadPageFromDB(pageData)
 {
-	
+	console.log("pageData: ", pageData);
+	var page = $("article#page-template");
+	page.find(".page-author")
+	.attr("href", "mailto:" + pageData.adminData.email)
+	.text(pageData.adminData.firstName + " " + pageData.adminData.lastName);
+
+	page.find(".page-title").text(pageData.title);
+	page.find(".page-image img").attr({
+		"src" : "img/page/" + pageData.imageData.path,
+		"title" : pageData.imageData.title,
+		"alt" : pageData.imageData.alt
+	});
+
+	var splittedBody = pageData.body.split("\n");
+
+	for(var i = 0; i < splittedBody.length; i++)
+	{
+		$(".page-body").append($("<p>").text(splittedBody[i]));
+	}
+
+	if(pageData.newPage === true)
+	{
+		history.pushState(null, null, pageData.pageURL);
+	}
+
+	page.fadeIn(500);
+	$("a[href=" + pageData.pageURL + "]").addClass("active");
 }
 
 // function newMainPage(pageUrl)

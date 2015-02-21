@@ -21,6 +21,9 @@ function resetSite()
 	$("header nav > ul").removeClass("display-header-menu");
 	$("a").removeClass("active");
 
+	$("#page-template .page-body").empty();
+	$("header .main-menu").empty();
+
 	$("input[type=text]").val("");
 	$("input[type=email]").val("");
 	$("input[type=password]").val("");

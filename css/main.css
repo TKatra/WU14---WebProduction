@@ -349,13 +349,19 @@ main .main-section .main-content .page-image {
 main .main-section .main-content .page-image img {
   display: block;
   margin: 0 auto 25px;
-  max-height: 200px;
+  max-height: 250px;
   max-width: 90%;
   border: 5px solid #AAAAAA;
 }
 main .main-section .main-content h1 {
   text-align: center;
   border-bottom: 2px solid #AAAAAA;
+}
+main .main-section .main-content a {
+  text-decoration: underline;
+}
+main .main-section .main-content a:hover {
+  color: #ff9908;
 }
 main .main-section .main-content .splittable-section .section-splitter-2 {
   display: inline-block;

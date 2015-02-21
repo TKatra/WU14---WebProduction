@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 20 feb 2015 kl 19:53
+-- Tid vid skapande: 21 feb 2015 kl 01:25
 -- Serverversion: 5.6.17
 -- PHP-version: 5.4.28
 
@@ -95,8 +95,15 @@ CREATE TABLE IF NOT EXISTS `MenuLink` (
   `path` varchar(255) NOT NULL,
   `weight` int(11) DEFAULT '0',
   `menuID` varchar(255) NOT NULL,
-  `parentID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `parentID` int(11) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumpning av Data i tabell `MenuLink`
+--
+
+INSERT INTO `MenuLink` (`ID`, `title`, `path`, `weight`, `menuID`, `parentID`) VALUES
+(6, 'Tools', 'tools', 0, 'main-menu', NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `Pages` (
   `adminID` int(11) NOT NULL,
   `imageID` int(11) NOT NULL,
   `uploaded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumpning av Data i tabell `Pages`
@@ -140,7 +147,16 @@ INSERT INTO `Pages` (`ID`, `title`, `body`, `adminID`, `imageID`, `uploaded`) VA
 (2, 'Cool stuff', 'You never know where you might find them...', 1, 5, '2015-02-20 14:33:48'),
 (3, 'Glorph', 'Let''s just call this dragon that.', 1, 12, '2015-02-20 19:33:02'),
 (4, 'dfgfdgdg', 'ertretret', 1, 1, '2015-02-20 19:43:55'),
-(5, 'Swag', 'Lookin'' good!', 1, 1, '2015-02-20 19:46:30');
+(5, 'Swag', 'Lookin'' good!', 1, 1, '2015-02-20 19:46:30'),
+(6, 'dfgfd', 'xcvxcxcvxc', 1, 1, '2015-02-20 22:50:09'),
+(7, 'gerph jool', 'blargh', 1, 1, '2015-02-20 22:50:46'),
+(8, 'fcfgcfgcfgc', 'gyuhuhuhuh', 1, 1, '2015-02-20 22:52:24'),
+(9, 'cftcft', 'vgygvyvgy', 1, 1, '2015-02-20 22:56:15'),
+(10, 'dfgfdgfdretret', 'xcrfserser', 1, 1, '2015-02-20 22:57:41'),
+(11, 'dgfdgfdgfdgfdg', 'fcghfdgrdser', 1, 1, '2015-02-20 23:00:08'),
+(12, 'sdfsdfsdrfwserwer', 'ghjghjghuifuyity', 1, 1, '2015-02-20 23:01:24'),
+(13, 'Work stuff', 'Work work...', 1, 1, '2015-02-20 23:04:43'),
+(14, 'Tools', 'Shuff', 1, 4, '2015-02-20 23:29:59');
 
 -- --------------------------------------------------------
 
@@ -152,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `UrlAlias` (
 `ID` int(11) NOT NULL,
   `path` varchar(255) NOT NULL,
   `pageID` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumpning av Data i tabell `UrlAlias`
@@ -163,7 +179,16 @@ INSERT INTO `UrlAlias` (`ID`, `path`, `pageID`) VALUES
 (2, 'cool-stuff', 2),
 (3, 'glorph', 3),
 (4, 'dfgfdgdg', 4),
-(5, 'swag', 5);
+(5, 'swag', 5),
+(6, 'dfgfd', 6),
+(7, 'gerph-jool', 7),
+(8, 'fcfgcfgcfgc', 8),
+(9, 'cftcft', 9),
+(10, 'dfgfdgfdretret', 10),
+(11, 'dgfdgfdgfdgfdg', 11),
+(12, 'sdfsdfsdrfwserwer', 12),
+(13, 'work-stuff', 13),
+(14, 'tools', 14);
 
 -- --------------------------------------------------------
 
@@ -245,17 +270,17 @@ MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT för tabell `MenuLink`
 --
 ALTER TABLE `MenuLink`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT för tabell `Pages`
 --
 ALTER TABLE `Pages`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT för tabell `UrlAlias`
 --
 ALTER TABLE `UrlAlias`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT för tabell `Videos`
 --

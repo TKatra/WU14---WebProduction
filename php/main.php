@@ -10,9 +10,11 @@ $connectInfo = array(
   "password" => "mysql"
   );
 
-$request = $_REQUEST;
 $PDOHelper = new PDOHelper($connectInfo["host"], $connectInfo["dbname"], $connectInfo["username"], $connectInfo["password"]);
 $result = array();
+
+// var_dump($_REQUEST);
+// die();
 
 
 if($request["commandLine"] == "createNewAccount")
@@ -91,6 +93,16 @@ else if($_REQUEST["commandLine"] == "buildImageSelectElement")
 	echo(json_encode($result));
 	exit();
 }
+else if($_REQUEST["commandLine"] == "getAllAdmins")
+{
+	$result = $PDOHelper->query(
+		"SELECT *
+		FROM Admins"
+		);
+
+	echo(json_encode($result));
+	exit();
+}
 else if($_REQUEST["commandLine"] == "addNewPage")
 {
 	// var_dump($_REQUEST);
@@ -159,18 +171,79 @@ else if($_REQUEST["commandLine"] == "addNewPage")
 }
 else if($_REQUEST["commandLine"] == "loadPage")
 {
-	$pageURL = $_REQUEST["pageURL"];
+	// var_dump($_REQUEST);
+	// die();
+	$result["pageURL"] = $_REQUEST["pageURL"];
+	$result["newPage"] = $_REQUEST["newPage"];
 
-	
+	$prepareValues = array(
+		"pageURL"=>$_REQUEST["pageURL"]
+		);
+
+	$pageID = $PDOHelper->query(
+		"SELECT pageID
+		FROM UrlAlias
+		WHERE `path` = :pageURL
+		ORDER BY ID DESC LIMIT 1;",
+		$prepareValues);
+
+	// var_dump($pageID);
+	// die();
+
+	$pageData = $PDOHelper->query(
+		"SELECT *
+		FROM Pages
+		WHERE ID = :pageID",
+		$pageID[0]);
+
+	// var_dump($pageData[0]);
+	// die();
+
+	$result = $pageData[0];
+
+	$adminID = array(
+		"adminID"=>$pageData[0]["adminID"]
+		);
+
+	$adminData = $PDOHelper->query(
+		"SELECT *
+		FROM Admins
+		WHERE ID = :adminID",
+		$adminID);
+
+	$result["adminData"] = $adminData[0];
+
+	// var_dump($adminData);
+	// die();
+
+	$imageID = array(
+		"imageID"=>$pageData[0]["imageID"]
+		);
+
+	$imageData = $PDOHelper->query(
+		"SELECT *
+		FROM Images
+		WHERE ID = :imageID",
+		$imageID);
+
+	// var_dump($imageData);
+	// die();
+
+	$result["imageData"] = $imageData[0];
+
+	// var_dump($result);
+	// die();
 
 	echo(json_encode($result));
 	exit();
 }
-else if($_REQUEST["commandLine"] = "getAllAdmins")
+else if($_REQUEST["commandLine"] == "getMainMenuLinks")
 {
 	$result = $PDOHelper->query(
 		"SELECT *
-		FROM Admins"
+		FROM MenuLink
+		WHERE menuID = 'main-menu'
+		ORDER BY weight;"
 		);
 
 	echo(json_encode($result));

@@ -132,6 +132,7 @@ else if($_REQUEST["commandLine"] == "addNewPage")
 	{
 		$menuData = $_REQUEST["menuData"];
 		$menuData["linkURL"] = $_REQUEST["pageURL"];
+		$menuData["linkWeight"] = (int)$menuData["linkWeight"];
 
 		if(trim($menuData["linkParentID"]) === "")
 		{

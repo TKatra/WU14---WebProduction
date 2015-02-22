@@ -167,10 +167,10 @@ function loadPageFromDB(pageData)
 function buildFooter(footerData)
 {
 	// console.log("footerData: ", footerData);
-	$(".address-area").empty();
+	$(".admin-addresses").empty();
 	for(var i = 0; i < footerData.length; i++)
 	{
-		$(".address-area").append($("<a>").attr("href", "mailto:" + footerData[i].email).text(footerData[i].firstName + " " + footerData[i].lastName));
+		$(".admin-addresses").append($("<a>").attr("href", "mailto:" + footerData[i].email).text(footerData[i].firstName + " " + footerData[i].lastName));
 	}
 	setMainContentMargin();
 }

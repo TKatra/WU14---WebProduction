@@ -12,16 +12,11 @@ function linkOnClick(event)
 	}
 	else if ($(this).attr("href") != null && $(this).attr("href") !== "#")
 	{
-		// if($(this).parents("ul").length > 0 || $(this).hasClass("home-link"))
-		// {
-		// 	$(this).addClass("active");
-		// }
 		var pageData = {
 			"newPage" : true,
 			"pageURL" : $(this).attr("href")
 		};
 		buildPage(pageData);
-		// newMainPage();
 	}
 
 	event.preventDefault();
@@ -42,7 +37,6 @@ function checkboxDisplaySectionOnClick()
 {
 	var checkbox = $(this);
 	var section = $(this).parents("form").find("." + checkbox.val());
-	// console.log(section);
 
 	if(checkbox.is(":checked") === true)
 	{
@@ -58,7 +52,6 @@ function checkboxAddToMenuOnClick()
 {
 	var checkbox = $(this);
 	var section = $(this).parents("form").find("." + checkbox.val());
-	// console.log(section);
 
 	if(checkbox.is(":checked") === true)
 	{

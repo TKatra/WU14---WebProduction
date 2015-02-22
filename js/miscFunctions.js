@@ -13,8 +13,6 @@ function setMainContentMargin()
 
 function resetSite()
 {
-	console.log("Reset Site");
-
 	$(".admin-tools-menu ul").slideUp(150);
 	$(".main-content article").hide();
 	$(".hamburger-button").removeClass("active");
@@ -51,7 +49,6 @@ function toUrl(text)
 
 function createMenuTree(menuData)
 {
-	console.log("menuData: ", menuData);
 	var menuTree = [];
 	var hash = {};
 

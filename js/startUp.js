@@ -24,11 +24,7 @@ function siteStartup()
 	$(".checkbox-disable").click(checkboxDisableOnClick);
 	$(".checkbox-display-section").click(checkboxDisplaySectionOnClick);
 	$(".checkbox-display-section[name=addToMenu]").click(checkboxAddToMenuOnClick);
-	
-	
-	// buildDebugWindow();
 
-	// loadMainPage(getCurrentPage());
 	var pageData = {
 		"pageURL" : getCurrentPage(),
 		"newPage" : false

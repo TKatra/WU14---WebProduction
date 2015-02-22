@@ -5,13 +5,11 @@ function onPop()
 		"newPage" : false
 	};
 	buildPage(pageData);
-	// loadMainPage();
 }
 
 function onWindowResize()
 {
 	setMainContentMargin();
-	buildDebugWindow();
 }
 
 function pageTitleKeyUp()

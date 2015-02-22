@@ -465,17 +465,6 @@ footer .footer-content .footer-section .admin-addresses {
 footer .footer-content .footer-section .admin-addresses a {
   display: block;
 }
-.debug {
-  z-index: 10000;
-  position: fixed;
-  display: inline-block;
-  bottom: 0;
-  right: 0;
-  padding: 5px;
-  opacity: 0.8;
-  background-color: #20e2ee;
-  border-radius: 5px 0 0 0;
-}
 /* Extra small devices (phones, less than 768px) */
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {

@@ -10,18 +10,14 @@ function adminAddPageSubmit()
 
 	if ($(this).find("input[name=addToMenu]:checked").length > 0)
 	{
-		console.log("Add to menu!");
-
 		requestData.menuData = {
 			"linkTitle" : $(this).find("input[name=linkTitle]").val(),
 			"linkWeight" : $(this).find("input[name=linkWeight]").val(),
 			"linkParentID" : $(this).find("select[name=linkParentID]").val()
 		};
 	}
-	console.log("requestData: ", requestData);
 
 	contactPHP(requestData, buildPage);
-
 	return false;
 }
 

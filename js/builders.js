@@ -1,6 +1,5 @@
 function buildPage(pageData)
 {
-	console.log("Build Page, pageData: ", pageData);
 	resetSite();
 	// checkIfLoggedIn();
 	//
@@ -9,6 +8,7 @@ function buildPage(pageData)
 		"commandLine" : "getMainMenuLinks",
 		"pageURL" : pageData.pageURL
 	};
+
 	contactPHP(requestData, buildHeader);
 	contactPHP(requestData, buildLinkParentIDSelectElement);
 
@@ -33,35 +33,25 @@ function buildPage(pageData)
 
 function buildHeader(menuData)
 {
-	console.log("menuData: ", menuData);
-
 	var mainMenu = $(".main-menu");
 
 	var menuTree = createMenuTree(menuData.menuLinks);
 
-	console.log("menuTree: ", menuTree);
 	buildMainMenu(mainMenu, menuTree);
 	$("a[href=" + menuData.pageURL + "]").addClass("active");
 }
 
 function buildMainMenu(menuList, menuData)
 {
-	console.log("menuList: ", menuList);
-	console.log("menuData: ", menuData);
 	for(var i = 0; i < menuData.length; i++)
 	{
-		console.log("menuData[" + i + "]: ", menuData[i]);
 		var newListItem = $("<li>");
 		newListItem.append($("<a>")
 			.attr("href", menuData[i].path)
 			.text(menuData[i].title));
 
-		// console.log("");
-		// console.log("menuData[i].children > 0: ", menuData[i].children > 0);
 		if(menuData[i].children.length > 0)
 		{
-			console.log("Has children");
-			console.log("menuData[" + i + "].children", menuData[i].children);
 			var newMenuList = $("<ul>");
 			newListItem.append(newMenuList);
 			buildMainMenu(newMenuList, menuData[i].children);
@@ -72,18 +62,15 @@ function buildMainMenu(menuList, menuData)
 
 function buildLoginSection(loginData)
 {
-	console.log("buildLoginSection");
 	var loginSection = $("header nav .login-section");
 
 	if(loginData.firstName != null && loginData.lastName != null)
 	{
-		console.log("loginData length more than 0");
 		loginSection.find("p").text(loginData.firstName + " " + loginData.lastName);
 		loginSection.find("a").text("Log out").attr("href","log-out");
 	}
 	else
 	{
-		console.log("loginData length not more than 0");
 		loginSection.find("p").text("");
 		loginSection.find("a").text("Log in").attr("href", "log-in");
 	}
@@ -92,11 +79,6 @@ function buildLoginSection(loginData)
 
 function loadMainPage(pageURL, newPage)
 {
-	console.log("pageURL: ", pageURL);
-	console.log("newPage: ", newPage);
-	console.log("pageURL search for article: ", pageURL);
-
-
 	if($("article#"+pageURL).length > 0)
 	{
 		$("article#"+pageURL).fadeIn(500);
@@ -109,20 +91,18 @@ function loadMainPage(pageURL, newPage)
 	}
 	else
 	{
-		console.log("Load from DB");
 		var requestData = {
 			"commandLine" : "loadPage",
 			"pageURL" : pageURL,
 			"newPage" : newPage
 		};
-		console.log("requestData: ", requestData);
+
 		contactPHP(requestData, loadPageFromDB);
 	}
 }
 
 function loadPageFromDB(pageData)
 {
-	console.log("pageData: ", pageData);
 	var page = $("article#page-template");
 	page.find(".page-author")
 	.attr("href", "mailto:" + pageData.adminData.email)
@@ -142,14 +122,8 @@ function loadPageFromDB(pageData)
 		page.find(".page-body").append($("<p>").text(splittedBody[i]));
 	}
 
-	console.log("newPage: ", pageData.newPage);
-	console.log("pageURL: ", pageData.pageURL);
-
-
-
 	if(pageData.newPage === true)
 	{
-		console.log("PUSH");
 		history.pushState(null, null, pageData.pageURL);
 	}
 
@@ -157,16 +131,8 @@ function loadPageFromDB(pageData)
 	$("a[href=" + pageData.pageURL + "]").addClass("active");
 }
 
-// function newMainPage(pageURL)
-// {
-// 	loadMainPage(pageURL);
-// 	history.pushState(null,null,pageURL);
-// }
-
-
 function buildFooter(footerData)
 {
-	// console.log("footerData: ", footerData);
 	$(".admin-addresses").empty();
 	for(var i = 0; i < footerData.length; i++)
 	{
@@ -177,13 +143,10 @@ function buildFooter(footerData)
 
 function buildLinkParentIDSelectElement(menuData)
 {
-	console.log("buildLinkParentIDSelectElement menuData: ", menuData);
 	var selectElement = $("#admin-add-page select[name=linkParentID]");
 	var menuTree = createMenuTree(menuData.menuLinks);
 
 	selectElement.empty();
-
-	// console.log("selectElement: ", selectElement);
 	selectElement.append($("<option>").val("").text("Top"));
 
 	buildMenuLinkSelectOptions(selectElement, menuTree, 0);
@@ -191,8 +154,6 @@ function buildLinkParentIDSelectElement(menuData)
 
 function buildMenuLinkSelectOptions(selectElement, menuLinks, currentLevel)
 {
-	console.log("currentLevel: ", currentLevel);
-	console.log("menuLinks: ", menuLinks);
 	for(var i = 0; i < menuLinks.length; i++)
 	{
 		var levelIndicator = "";
@@ -222,39 +183,3 @@ function buildImageSelectElement(imageData)
 		selectElement.append($("<option>").val(imageData[i].ID).text(imageData[i].title));
 	}
 }
-
-
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-function buildDebugWindow()
-{
-	var currentBootstrapMode;
-	$(".debug").remove();
-
-	if ($(window).width() < 751)
-	{
-		currentBootstrapMode = "xs";
-	}
-	else if ($(window).width() < 975)
-	{
-		currentBootstrapMode = "sm";
-	}
-	else if ($(window).width() < 1183)
-	{
-		currentBootstrapMode = "md";
-	}
-	else if ($(window).width() >= 1183)
-	{
-		currentBootstrapMode = "lg";
-	}
-	
-	$("body").prepend($("<div>")
-	.addClass("debug")
-	.html($( window ).width() + " x " + $(window).height() + "<br/>" +
-		"Height of footer:" + $("footer").height() + "<br/>" +
-		"Margin on main-content: " + parseInt($(".main-content").css("margin-bottom"), 10) + "<br/>" +
-		"Current Bootstrap Mode: ~" + currentBootstrapMode + "~")
-	);
-}
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////

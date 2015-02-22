@@ -86,15 +86,14 @@ header {
   /* Standard syntax (must be last) */
 }
 header nav {
+  position: relative;
   height: 50px;
   text-align: center;
 }
 header nav .home-link {
   display: inline-block;
+  top: 0px;
   height: 100%;
-  height: 50px;
-  padding: 16px 0 14px;
-  max-height: 50px;
   margin: 0 -2px;
   border-left: 1px solid #000000;
   border-right: 1px solid #000000;
@@ -210,7 +209,7 @@ header nav ul li a {
   display: inline-block;
   font-size: 30px;
   font-family: 'Cuprum', sans-serif;
-  margin: 0 -2px;
+  margin: 0 ;
   border-right: 1px solid #000000;
   padding: 6px 5px 1px;
 }
@@ -230,7 +229,7 @@ header nav ul li a.active {
 }
 header nav ul ul {
   position: absolute;
-  left: -3px;
+  left: -1px;
   margin: 10px 0 0;
   white-space: nowrap;
   display: none;
@@ -395,6 +394,7 @@ main .main-section .main-content .button {
   padding: 5px 20px;
   border: 1px solid #000000;
   border-radius: 5px;
+  text-decoration: none;
   background: -webkit-linear-gradient(#f3f047, #f0991c);
   /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#f3f047, #f0991c);
@@ -405,6 +405,7 @@ main .main-section .main-content .button {
   /* Standard syntax (must be last) */
 }
 main .main-section .main-content .button:hover {
+  color: #000000;
   background: -webkit-linear-gradient(#ffff59, #ff9908);
   /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#ffff59, #ff9908);

@@ -93,7 +93,7 @@ header{
 
 	nav{
 		// z-index: 50;
-		// position: relative;
+		position: relative;
 		
 		// background-color: #AAAAAA;
 		height: 50px;
@@ -102,11 +102,13 @@ header{
 
 		.home-link{
 			display: inline-block;
+			top: 0px;
 			height: 100%;
 			// width: 50%;
-			height: 50px;
-			padding: 16px 0 14px;
-			max-height: 50px;
+			// height: 50px;
+			// padding: 16px 0 14px;
+			// max-height: 50px;
+
 			margin: 0 -2px;
 			border-left: 1px solid #000000;
 			border-right: 1px solid #000000;
@@ -222,7 +224,7 @@ header{
 					// padding: auto;
 
 					// height: 50px;
-					margin: 0 -2px;
+					margin: 0 ;
 					border-right: 1px solid #000000;
 					// padding: 6px 20px 3px;
 					padding: 6px 5px 1px;
@@ -246,7 +248,7 @@ header{
 
 			ul{
 				position: absolute;
-				left: -3px;
+				left: -1px;
 				// top:100%;
 				margin: 10px 0 0;
 				white-space: nowrap;
@@ -417,6 +419,7 @@ main{
 				&:hover{
 					color: #ff9908;
 				}
+
 			}
 
 			.splittable-section{
@@ -454,6 +457,7 @@ main{
 				padding: 5px 20px;
 				border:1px solid #000000;
 				border-radius: 5px;
+				text-decoration: none;
 
 				background: -webkit-linear-gradient(#f3f047, #f0991c); /* For Safari 5.1 to 6.0 */
 				background: -o-linear-gradient(#f3f047, #f0991c); /* For Opera 11.1 to 12.0 */
@@ -461,6 +465,7 @@ main{
 				background: linear-gradient(#f3f047, #f0991c); /* Standard syntax (must be last) */
 				
 				&:hover{
+					color: #000000;
 					background: -webkit-linear-gradient(#ffff59, #ff9908); /* For Safari 5.1 to 6.0 */
 					background: -o-linear-gradient(#ffff59, #ff9908); /* For Opera 11.1 to 12.0 */
 					background: -moz-linear-gradient(#ffff59, #ff9908); /* For Firefox 3.6 to 15 */

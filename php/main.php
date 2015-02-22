@@ -32,7 +32,7 @@ if($request["commandLine"] == "createNewAccount")
 	$prepareValues
 	);
 
-	$result["UrlToLoad"] = "log-in";
+	$result["pageURL"] = "log-in";
 	$result["newPage"] = true;
 
 	echo(json_encode($result));
@@ -163,7 +163,7 @@ else if($_REQUEST["commandLine"] == "addNewPage")
 		// die();
 	}
 
-	$result["UrlToLoad"] = $_REQUEST["pageURL"];
+	$result["pageURL"] = $_REQUEST["pageURL"];
 	$result["newPage"] = true;
 
 	echo(json_encode($result));
@@ -173,8 +173,7 @@ else if($_REQUEST["commandLine"] == "loadPage")
 {
 	// var_dump($_REQUEST);
 	// die();
-	$result["pageURL"] = $_REQUEST["pageURL"];
-	$result["newPage"] = $_REQUEST["newPage"];
+	
 
 	$prepareValues = array(
 		"pageURL"=>$_REQUEST["pageURL"]
@@ -231,6 +230,19 @@ else if($_REQUEST["commandLine"] == "loadPage")
 
 	$result["imageData"] = $imageData[0];
 
+	$result["pageURL"] = $_REQUEST["pageURL"];
+
+	if($_REQUEST["newPage"] == "true")
+	{
+		$result["newPage"] = true;
+	}
+	else
+	{
+		$result["newPage"] = false;
+	}
+
+	
+
 	// var_dump($result);
 	// die();
 
@@ -239,7 +251,10 @@ else if($_REQUEST["commandLine"] == "loadPage")
 }
 else if($_REQUEST["commandLine"] == "getMainMenuLinks")
 {
-	$result = $PDOHelper->query(
+	// var_dump($_REQUEST);
+	// die();
+	$result["pageURL"] = $_REQUEST["pageURL"];
+	$result["menuLinks"] = $PDOHelper->query(
 		"SELECT *
 		FROM MenuLink
 		WHERE menuID = 'main-menu'

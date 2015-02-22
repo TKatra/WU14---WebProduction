@@ -48,3 +48,33 @@ function toUrl(text)
 
 	return text.toLowerCase();
 }
+
+function createMenuTree(menuData)
+{
+	console.log("menuData: ", menuData);
+	var menuTree = [];
+	var hash = {};
+
+	for(var i = 0; i < menuData.length; i++)
+	{
+		menuData[i].children = [];
+
+		hash["_" + menuData[i].ID] = menuData[i];
+
+		if(menuData[i].parentID === null)
+		{
+			menuTree.push(menuData[i]);
+		}
+	}
+
+	for(var i in hash)
+	{
+		var menuLink = hash[i];
+		if(!menuLink.parentID)
+		{
+			continue;
+		}
+		hash["_" + menuLink.parentID].children.push(menuLink);
+	}
+	return menuTree;
+}

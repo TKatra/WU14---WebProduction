@@ -12,13 +12,13 @@ function linkOnClick(event)
 	}
 	else if ($(this).attr("href") != null && $(this).attr("href") !== "#")
 	{
-		if($(this).parents("ul").length > 0 || $(this).hasClass("home-link"))
-		{
-			$(this).addClass("active");
-		}
+		// if($(this).parents("ul").length > 0 || $(this).hasClass("home-link"))
+		// {
+		// 	$(this).addClass("active");
+		// }
 		var pageData = {
 			"newPage" : true,
-			"UrlToLoad" : $(this).attr("href")
+			"pageURL" : $(this).attr("href")
 		};
 		buildPage(pageData);
 		// newMainPage();

@@ -30,7 +30,7 @@ function siteStartup()
 
 	// loadMainPage(getCurrentPage());
 	var pageData = {
-		"UrlToLoad" : getCurrentPage(),
+		"pageURL" : getCurrentPage(),
 		"newPage" : false
 	};
 	buildPage(pageData);

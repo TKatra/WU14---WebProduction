@@ -1,7 +1,7 @@
 function onPop()
 {
 	var pageData = {
-		"UrlToLoad" : getCurrentPage(),
+		"pageURL" : getCurrentPage(),
 		"newPage" : false
 	};
 	buildPage(pageData);

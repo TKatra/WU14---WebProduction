@@ -500,17 +500,46 @@ footer{
 	background: linear-gradient(#a96505, #cf8722); /* Standard syntax (must be last) */
 
 	.footer-content{
+		// position: relative;
 		text-align: center;
-		.address-area{
-			margin: 0;
-			padding: 0;
+		.footer-section{
+
+			// position: absolute;
+			// top:5px;
+			display: inline-block;
+			height: 100%;
+			vertical-align: top;
+			padding: 5px 15px 0;
+			text-align: left;
+			h4{
+				padding: 0;
+				margin: 0;
+			}
+
 			a{
+				// display: block;
 				text-decoration: underline;
 				&:hover{
 					color: #FFFFFF;
 				}
 			}
+
+			.admin-addresses{
+				margin: 0;
+				padding: 0;
+				a{
+					display: block;
+				}
+			}
+
 		}
+		// }
+		// .address-section{
+		// 	display:inline-block;
+		// 	text-align: left;
+			
+		// }
+		
 	}
 }
 

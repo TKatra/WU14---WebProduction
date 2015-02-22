@@ -441,15 +441,29 @@ footer {
 footer .footer-content {
   text-align: center;
 }
-footer .footer-content .address-area {
+footer .footer-content .footer-section {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  padding: 5px 15px 0;
+  text-align: left;
+}
+footer .footer-content .footer-section h4 {
+  padding: 0;
+  margin: 0;
+}
+footer .footer-content .footer-section a {
+  text-decoration: underline;
+}
+footer .footer-content .footer-section a:hover {
+  color: #FFFFFF;
+}
+footer .footer-content .footer-section .admin-addresses {
   margin: 0;
   padding: 0;
 }
-footer .footer-content .address-area a {
-  text-decoration: underline;
-}
-footer .footer-content .address-area a:hover {
-  color: #FFFFFF;
+footer .footer-content .footer-section .admin-addresses a {
+  display: block;
 }
 .debug {
   z-index: 10000;

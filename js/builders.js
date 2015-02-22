@@ -6,21 +6,22 @@ function buildPage(pageData)
 	//
 
 	var requestData = {
-		"commandLine" : "getMainMenuLinks"
+		"commandLine" : "getMainMenuLinks",
+		"pageURL" : pageData.pageURL
 	};
-	contactPHP(requestData, buildHeaderMenu);
+	contactPHP(requestData, buildHeader);
 
 	requestData = {
 		"commandLine" : "buildImageSelectElement"
 	};
 	contactPHP(requestData, buildImageSelectElement);
 
-	if(!pageData.UrlToLoad)
+	if(!pageData.pageURL)
 	{
-		pageData.UrlToLoad = "home";
+		pageData.pageURL = "home";
 	}
 
-	loadMainPage(pageData.UrlToLoad, pageData.newPage);
+	loadMainPage(pageData.pageURL, pageData.newPage);
 
 	requestData = {
 		commandLine : "getAllAdmins"
@@ -29,15 +30,42 @@ function buildPage(pageData)
 	contactPHP(requestData, buildFooter);
 }
 
-function buildHeaderMenu(MenuData)
+function buildHeader(menuData)
 {
-	console.log("MenuData: ", MenuData);
+	console.log("menuData: ", menuData);
 
 	var mainMenu = $(".main-menu");
 
-	for(var i = 0; i < MenuData.length; i++)
-	{
+	var menuTree = createMenuTree(menuData.menuLinks);
 
+	console.log("menuTree: ", menuTree);
+	buildMainMenu(mainMenu, menuTree);
+	$("a[href=" + menuData.pageURL + "]").addClass("active");
+}
+
+function buildMainMenu(menuList, menuData)
+{
+	console.log("menuList: ", menuList);
+	console.log("menuData: ", menuData);
+	for(var i = 0; i < menuData.length; i++)
+	{
+		console.log("menuData[" + i + "]: ", menuData[i]);
+		var newListItem = $("<li>");
+		newListItem.append($("<a>")
+			.attr("href", menuData[i].path)
+			.text(menuData[i].title));
+
+		// console.log("");
+		// console.log("menuData[i].children > 0: ", menuData[i].children > 0);
+		if(menuData[i].children.length > 0)
+		{
+			console.log("Has children");
+			console.log("menuData[" + i + "].children", menuData[i].children);
+			var newMenuList = $("<ul>");
+			newListItem.append(newMenuList);
+			buildMainMenu(newMenuList, menuData[i].children);
+		}
+		menuList.append(newListItem);
 	}
 }
 
@@ -61,28 +89,29 @@ function buildLoginSection(loginData)
 }
 
 
-function loadMainPage(pageUrl, newPage)
+function loadMainPage(pageURL, newPage)
 {
-	console.log("pageUrl: ", pageUrl);
-	console.log("pageUrl search for article: ", pageUrl);
+	console.log("pageURL: ", pageURL);
+	console.log("newPage: ", newPage);
+	console.log("pageURL search for article: ", pageURL);
 
 
-	if($("article#"+pageUrl).length > 0)
+	if($("article#"+pageURL).length > 0)
 	{
-		$("article#"+pageUrl).fadeIn(500);
+		$("article#"+pageURL).fadeIn(500);
 
 		if(newPage === true)
 		{
-			history.pushState(null,null,pageUrl);
+			history.pushState(null,null,pageURL);
 		}
-		$("a[href=" + pageUrl + "]").addClass("active");
+		$("a[href=" + pageURL + "]").addClass("active");
 	}
 	else
 	{
 		console.log("Load from DB");
 		var requestData = {
 			"commandLine" : "loadPage",
-			"pageURL" : pageUrl,
+			"pageURL" : pageURL,
 			"newPage" : newPage
 		};
 		console.log("requestData: ", requestData);
@@ -112,8 +141,14 @@ function loadPageFromDB(pageData)
 		$(".page-body").append($("<p>").text(splittedBody[i]));
 	}
 
+	console.log("newPage: ", pageData.newPage);
+	console.log("pageURL: ", pageData.pageURL);
+
+
+
 	if(pageData.newPage === true)
 	{
+		console.log("PUSH");
 		history.pushState(null, null, pageData.pageURL);
 	}
 
@@ -121,10 +156,10 @@ function loadPageFromDB(pageData)
 	$("a[href=" + pageData.pageURL + "]").addClass("active");
 }
 
-// function newMainPage(pageUrl)
+// function newMainPage(pageURL)
 // {
-// 	loadMainPage(pageUrl);
-// 	history.pushState(null,null,pageUrl);
+// 	loadMainPage(pageURL);
+// 	history.pushState(null,null,pageURL);
 // }
 
 

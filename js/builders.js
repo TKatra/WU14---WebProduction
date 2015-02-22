@@ -10,6 +10,7 @@ function buildPage(pageData)
 		"pageURL" : pageData.pageURL
 	};
 	contactPHP(requestData, buildHeader);
+	contactPHP(requestData, buildLinkParentIDSelectElement);
 
 	requestData = {
 		"commandLine" : "buildImageSelectElement"
@@ -138,7 +139,7 @@ function loadPageFromDB(pageData)
 
 	for(var i = 0; i < splittedBody.length; i++)
 	{
-		$(".page-body").append($("<p>").text(splittedBody[i]));
+		page.find(".page-body").append($("<p>").text(splittedBody[i]));
 	}
 
 	console.log("newPage: ", pageData.newPage);
@@ -172,6 +173,44 @@ function buildFooter(footerData)
 		$(".address-area").append($("<a>").attr("href", "mailto:" + footerData[i].email).text(footerData[i].firstName + " " + footerData[i].lastName));
 	}
 	setMainContentMargin();
+}
+
+function buildLinkParentIDSelectElement(menuData)
+{
+	console.log("buildLinkParentIDSelectElement menuData: ", menuData);
+	var selectElement = $("#admin-add-page select[name=linkParentID]");
+	var menuTree = createMenuTree(menuData.menuLinks);
+
+	selectElement.empty();
+
+	// console.log("selectElement: ", selectElement);
+	selectElement.append($("<option>").val("").text("Top"));
+
+	buildMenuLinkSelectOptions(selectElement, menuTree, 0);
+}
+
+function buildMenuLinkSelectOptions(selectElement, menuLinks, currentLevel)
+{
+	console.log("currentLevel: ", currentLevel);
+	console.log("menuLinks: ", menuLinks);
+	for(var i = 0; i < menuLinks.length; i++)
+	{
+		var levelIndicator = "";
+		for(var j = 0; j <= currentLevel; j++)
+		{
+			levelIndicator += ">";
+		}
+
+		selectElement.append(
+			$("<option>")
+			.val(menuLinks[i].ID)
+			.text(levelIndicator + " " + menuLinks[i].title)
+			);
+		if(menuLinks[i].children.length > 0)
+		{
+			buildMenuLinkSelectOptions(selectElement, menuLinks[i].children, currentLevel + 1);
+		}
+	}
 }
 
 function buildImageSelectElement(imageData)

@@ -207,11 +207,11 @@ header nav ul li:hover > ul {
 }
 header nav ul li a {
   display: inline-block;
-  font-size: 30px;
+  font-size: 22px;
   font-family: 'Cuprum', sans-serif;
   margin: 0 ;
   border-right: 1px solid #000000;
-  padding: 6px 5px 1px;
+  padding: 14px 5px 5px;
 }
 header nav ul li a:hover {
   background: -webkit-linear-gradient(#ffff59, #ff9908);
